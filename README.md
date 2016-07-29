@@ -6,7 +6,6 @@
 [Check it out at OweSki.me](http://www.OweSki.me)
 
 
-***
 ## PROPOSAL
 ### OweSki - “...so you KnowSki”
 When two people go to lunch, get beers, buy a soda, etc., and one of the people buys and says “you get the next one”: OweSki is a way for both parties to track who owes whom. 
@@ -28,7 +27,6 @@ Someone bought lunch? +1 to buyer / -1 to beneficiary
 1. Store images of the check with the beneficiary in the background (with a sad face of course). -->
 
 
-***
 ## Requirements
 1. Must have the ability to register a user in Firebase
 1. Must have the ability to log in
