@@ -9,13 +9,13 @@
 ***
 ## PROPOSAL
 ### OweSki - “...so you KnowSki”
-When two people go to lunch, get beers, buy a soda, etc., and one of the people buys and says “you get the next one”: Oweski is a way for both parties to track who owes whom. 
+When two people go to lunch, get beers, buy a soda, etc., and one of the people buys and says “you get the next one”: OweSki is a way for both parties to track who owes whom. 
 ### OweSki Snapshot
 OweSki is basically a “who’s turn is it?” tracker. 
 Someone bought lunch? +1 to buyer / -1 to beneficiary
 
 ## NOTES
-- OweSki is an idea I’ve had for a while now. A best friend and I have had a “mental” Oweski going for a while, and I’ve always intended to make it an application at some point; why not now?
+- OweSki is an idea I’ve had for a while now. A best friend and I have had a “mental” OweSki going for a while, and I’ve always intended to make it an application at some point; why not now?
 - I see this as a phone app eventually, but functionally it could/should work just as well as a web app (make it responsive!) 
 
 <!-- ## STRETCH GOALS
