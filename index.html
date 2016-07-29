@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> OweSki / ...So You KnowSki! </title>
+  <!-- MATERIALIZE: Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+  <!-- MATERIALIZE ICONS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- GOOGLE FONTS -->
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC|Shadows+Into+Light|Limelight|Rock+Salt' rel='stylesheet' type='text/css'>
+  <link href="styles/main.css">
+</head>
+
+
+
+<body ng-app="MovieApp">
+  <!--~~~~~~~~~~~~~~~~~~~~ NAV BAR ~~~~~~~~~~~~~~~~~~~~-->
+  <!-- BEGINNING OF NAV -->
+  <div ng-include="'partials/nav.html'"> 
+  </div>
+  <!-- END OF NAV BAR -->
+
+  <!--~~~~~~~~~~~~~~~~~ MAIN CONTAINER ~~~~~~~~~~~~~~~~-->
+  <!-- CONTAINER FOR VIEW AND NEW -->
+  <div class="container z-depth-3" ng-view>
+  </div>
+  <!-- END OF CONTAINER FOR VIEW AND NEW -->
+
+
+
+  <!--~~~~~~~~~~~~~~~~~~~ LINK TAGS ~~~~~~~~~~~~~~~~~~~-->
+  <!-- BEGIN LINK TAGS -->
+  <script src="lib/bower_components/angular/angular.min.js"></script>
+  <script src="lib/bower_components/angular-route/angular-route.min.js"></script> <!-- where ngRoute comes from (see app.js) -->
+
+  <!-- Materialize: jQuery (necessary for Materialize's JavaScript plugins) -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+  <!-- Materialize: Latest compiled and minified JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+  
+  <!-- APP FIRST -->
+  <script src="app/app.js"></script>
+
+  <!-- FACTORIES NEXT -->
+  <!-- Factories get uppercased as convention -->
+  <script src="app/factories/SearchDatabaseFactory.js"></script> 
+  
+  <!-- CONTROLLERS LAST -->
+  <script src="app/controllers/loginRegisterCtrl.js"></script>
+  <script src="app/controllers/searchDatabaseCtrl.js"></script>
+  <!-- END LINK TAGS -->
+
+</body>
+</html>

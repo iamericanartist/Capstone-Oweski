@@ -1,0 +1,22 @@
+<!-- ============= SEARCH BAR ============= -->
+<div class="row">
+  <form id="databaseSearch">
+    <input type="text" ng-model="movieToSearch" placeholder="Search movie database..." class="col s9 offset-s1">
+    <button class="waves-effect waves-light btn-floating teal btn" ng-click="searchDatabase(movieToSearch)"><i class="material-icons">search</i></button>
+  </form>
+</div>
+
+
+<!-- ============= CARDS TO HOLD MOVIE RESULTS ============= -->
+<div class="row">
+  <div class="card col s4"  ng-repeat="movie in movies">
+    <div class="card-image">
+      <img ng-src="{{movie.Poster}}">    <!-- ng-src for images in ng-repeats (angular) -->
+    </div>
+    <div class="card-content red accent-4">
+      <p>{{movie.Title}}</p>
+      <p>{{movie.Type}}</p>
+      <p>{{movie.Year}}</p>
+    </div>
+  </div>
+</div>
