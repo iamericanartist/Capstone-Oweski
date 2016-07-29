@@ -1,5 +1,5 @@
 # OweSki - Front-End Capstone Project
-## Rich Browser Applications / ![AngularJS](img/AngularJSLogo50px.png "AngularJS") & ![Firebase ](img/FirebaseLogo50px.png "Firebase ")
+## Rich Browser Applications / ![AngularJS](img/AngularJSLogo50px.png "AngularJS")  &  ![Firebase ](img/FirebaseLogo50px.png "Firebase ")
 ### [NSS](http://nashvillesoftwareschool.com/) Cohort D14 / Instructor - [Joe Shephard](https://github.com/JoeShep) / Advisors - [Christina Young](https://github.com/ChristinaJYoung) & [Callen Morrison](https://github.com/morecallan)
 
 ![OweSkiScreencap](img/oweskiDisplay.jpg?raw=true "OweSki Screencap")
