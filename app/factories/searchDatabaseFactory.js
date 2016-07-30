@@ -1,5 +1,16 @@
 "use strict";
 
+
+
+
+
+// API not technically in use/part of project as of right now.
+
+
+
+
+
+
 app.factory("SearchDatabaseFactory", function($q, $http){       //$q - angular promise, $http angulars ajax  - both injected into project
 
     let movieList = (searchText, page) => {
