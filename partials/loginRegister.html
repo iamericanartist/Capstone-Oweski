@@ -13,32 +13,32 @@
   <form class="col s8 offset-s2" ng-show="registerMode">      <!-- see loginRegisterCtrl -->
     <div class="row">
       <div class="input-field col s12">
-        <input id="email" type="email" class="validate">
+        <input id="email" type="email" class="validate" ng-model="regEmail">
         <label for="email">Email</label>
       </div>
       <div class="input-field col s12">
-        <input id="password" type="password" class="validate">
+        <input id="password" type="password" class="validate" ng-model="regPassword">
         <label for="password">Password</label>
       </div>
     </div>
 
-    <div class="row"><div class="center-align"><button class="btn waves-effect waves-light">Register<i class="material-icons right">send</i></button></div></div>
+    <div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="onRegisterClick()">Register<i class="material-icons right">send</i></button></div></div>
   </form>
 
   <!-- ============= LOGIN FORM ============= -->
   <form class="col s8 offset-s2" ng-show="!registerMode">      <!-- see loginRegisterCtrl -->
     <div class="row">
       <div class="input-field col s12">
-        <input id="email" type="email" class="validate">
+        <input id="email" type="email" class="validate" ng-model="loginEmail">
         <label for="email">Email</label>
       </div>
       <div class="input-field col s12">
-        <input id="password" type="password" class="validate">
+        <input id="password" type="password" class="validate" ng-model="loginPassword">
         <label for="password">Password</label>
       </div>
     </div>
 
-    <div class="row"><div class="center-align"><button class="btn waves-effect waves-light">Login<i class="material-icons right">send</i></button></div></div>
+    <div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="onLoginClick()">Login<i class="material-icons right">send</i></button></div></div>
   </form>
   
 </div>

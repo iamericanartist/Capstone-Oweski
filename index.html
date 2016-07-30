@@ -14,8 +14,8 @@
 </head>
 
 
-
-<body ng-app="MovieApp">
+<!-- NAME OF THE ANGULAR APP ~~ SEE APP.JS: var app = angular.module("PinheadApp", ['ngRoute']) ~~-->
+<body ng-app="OweSkiApp">
   <!--~~~~~~~~~~~~~~~~~~~~ NAV BAR ~~~~~~~~~~~~~~~~~~~~-->
   <!-- BEGINNING OF NAV -->
   <div ng-include="'partials/nav.html'"> 
@@ -31,20 +31,27 @@
 
 
   <!--~~~~~~~~~~~~~~~~~~~ LINK TAGS ~~~~~~~~~~~~~~~~~~~-->
-  <!-- BEGIN LINK TAGS -->
+    <!-- AngularJS: link to minified version of ANGULAR module -->
   <script src="lib/bower_components/angular/angular.min.js"></script>
-  <script src="lib/bower_components/angular-route/angular-route.min.js"></script> <!-- where ngRoute comes from (see app.js) -->
-
-  <!-- Materialize: jQuery (necessary for Materialize's JavaScript plugins) -->
+    <!-- Angular-Route: where ngRoute originates (see app.js) -->
+  <script src="lib/bower_components/angular-route/angular-route.min.js"></script>
+    <!-- Firebase: link to FIREBASE module -->
+  <script src="lib/node_modules/firebase/firebase.js"></script>
+    <!-- Materialize: jQuery (necessary for Materialize's JavaScript plugins) -->
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
-  <!-- Materialize: Latest compiled and minified JavaScript -->
+    <!-- Materialize: Latest compiled and minified JavaScript -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
   
-  <!-- APP FIRST -->
+
+  <!-- APP LINK FIRST -->
   <script src="app/app.js"></script>
 
+  <!-- FIREBASE CREDENTIALS ~~ these are masked from publication using .gitignore and obfuscated in app.js ~~-->
+  <script src="app/values/firebasecreds.js"></script>
+
   <!-- FACTORIES NEXT -->
-  <!-- Factories get uppercased as convention -->
+    <!-- Factories get uppercased as convention -->
+  <script src="app/factories/AuthFactory.js"></script> 
   <script src="app/factories/SearchDatabaseFactory.js"></script> 
   
   <!-- CONTROLLERS LAST -->
