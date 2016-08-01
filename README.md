@@ -17,7 +17,7 @@ Someone bought lunch? +1 to buyer / -1 to beneficiary
 - OweSki is an idea I’ve had for a while now. A best friend and I have had a “mental” OweSki going for a while, and I’ve always intended to make it an application at some point; why not now?
 - I see this as a phone app eventually, but functionally it could/should work just as well as a web app (make it responsive!) 
 
-## Requirements
+## REQUIREMENTS
 1. Must have the ability to register a user in Firebase
 1. Must have the ability to log in
 1. You must be able to add OweSkis
