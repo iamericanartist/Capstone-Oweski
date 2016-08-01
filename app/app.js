@@ -13,16 +13,16 @@ app.config(function($routeProvider, FireCreds) {                          // lin
   firebase.initializeApp(authConfig);
 
 
-  $routeProvider                                    // all routing information
-   .when('/', {                                     // WHEN I'm at "/"...
-     templateUrl: 'partials/loginRegister.html',    // ...go to this partial...
+  $routeProvider                                    // ALL ROUTING INFORMATION
+   .when('/', {                                     // WHEN at "/"...
+     templateUrl: 'partials/loginRegister.html',    // ...show this partial...
      controller: 'loginRegisterCtrl'                // ...using this controller.
    })
-   .when('/main', {
-     templateUrl: 'partials/main.html',
-     controller: 'mainCtrl'
+   .when('/main', {                                 // WHEN at "/main"...
+     templateUrl: 'partials/main.html',             // ...show this partial...
+     controller: 'mainCtrl'                         // ...using this controller.
    })
-  .otherwise('/pinhead/mainboard');                 // OTHERWISE go to this partial...
+  .otherwise('/main');                              // OTHERWISE go to this partial (MAIN)...
 });                                                 // end of app.config
 
    // .when('/input', {
@@ -46,3 +46,11 @@ app.config(function($routeProvider, FireCreds) {                          // lin
    //   controller: 'inputMadlibCtrl'
    // });
 
+$('.button-collapse').sideNav({
+      menuWidth: 300, // Default is 240
+      edge: 'left', // Choose the horizontal origin
+      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    }
+  );
+
+// $(".button-collapse").sideNav();

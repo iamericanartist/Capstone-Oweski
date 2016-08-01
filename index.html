@@ -10,24 +10,141 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- GOOGLE FONTS -->
   <link href='https://fonts.googleapis.com/css?family=Amatic+SC|Shadows+Into+Light|Limelight|Rock+Salt' rel='stylesheet' type='text/css'>
-  <link href="styles/main.css">
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 
 
 <!-- NAME OF THE ANGULAR APP ~~ SEE APP.JS: var app = angular.module("PinheadApp", ['ngRoute']) ~~-->
 <body ng-app="OweSkiApp">
+
   <!--~~~~~~~~~~~~~~~~~~~~ NAV BAR ~~~~~~~~~~~~~~~~~~~~-->
   <!-- BEGINNING OF NAV -->
-  <div ng-include="'partials/nav.html'"> 
+
+  <!-- NOT USING NAV.HTML as the partial breaks the sidebar functionality in Materialize -->
+  <!-- <div ng-include="'partials/nav.html'"> 
+  </div> -->
+
+<nav class="light-blue" role="navigation">
+  <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">OweSki</a>
+    <ul class="right hide-on-med-and-down">
+      <!-- <li> | </li> -->
+      <li><a ng-href="#/account"><i class="material-icons left">account_circle</i>My Account</a></li>
+      <li><a ng-href="#/">Login</a></li>
+      <li><a ng-href="#/logout">Logout</a></li>
+    </ul>
+
+    <ul id="slide-out" class="side-nav">
+      <li>
+        <div class="userView">
+          <img class="background circle center-align userImage" src="https://avatars1.githubusercontent.com/u/16328475?v=3&s=460" />
+          <a href="#!name"><span class="name"><h5>This Dude Here</h5></span></a>
+          <!-- <a href="#!email"><span class="email center-align">thisEmailHere@gmail.com</span></a> -->
+        <div class="divider"></div>
+        </div>
+      </li>
+      <li><div class="divider"></div></li>
+      <li><a href="#!">My OweSkis</a></li>
+      <li><a class="waves-effect" href="#!">New OweSki</a></li>
+      <li><a class="waves-effect" href="#!">Update An OweSki</a></li>
+      <li><a class="waves-effect" href="#!">Delete An OweSki</a></li>
+      <li><div class="divider"></div></li>
+      <li><a ng-href="#/account"><i class="material-icons left">account_circle</i>My Account</a></li>
+      <li><a ng-href="#/">Login</a></li>
+      <li><a ng-href="#/logout">Log OutSki</a></li>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>   
   </div>
+</nav>
+
   <!-- END OF NAV BAR -->
+
 
   <!--~~~~~~~~~~~~~~~~~ MAIN CONTAINER ~~~~~~~~~~~~~~~~-->
   <!-- CONTAINER FOR VIEW AND NEW -->
-  <div class="container z-depth-3" ng-view>
+  <div class="container z-depth-2" ng-view>
   </div>
   <!-- END OF CONTAINER FOR VIEW AND NEW -->
 
+
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">"No Worries, Just "Oweski" Me, BroSki!</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">No one likes keeping mental score of "who got last..." Let OweSki do it for you!</h5>
+      </div>
+      <div class="row center">
+        <a href="/" id="register" class="btn-large waves-effect waves-light orange">OweSki Sign-up!</a>
+      </div>
+      <br><br>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">attach_money</i></h2>
+            <h5 class="center">"The More You KnowSki!"</h5>
+
+            <p class="light">Keep tabs on all your friendly back and forths with OweSki! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa corrupti quibusdam perferendis perspiciatis nam ad velit ipsum repellendus deserunt ea obcaecati non quidem, tenetur impedit dolorem distinctio, quasi commodi minima!</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">sync</i></h2>
+            <h5 class="center">Let OweSki Decide Who Buys!</h5>
+
+            <p class="light">Let "RandOweSki" decide who's picking up todays tab! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est dignissimos ab aliquam et neque soluta explicabo fugit laudantium a deserunt, ullam, alias voluptates dolore earum esse harum ea incidunt illum?</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">sentiment_dissatisfied</i></h2>
+            <h5 class="center">NOSki The Cheapskates...</h5>
+
+            <p class="light">Some people just want a free lunch... Keep tabs on them with Oweski! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis quam earum atque odio, nostrum accusamus consequatur doloremque dolor voluptas esse quasi fugit, facere voluptate laboriosam illo incidunt commodi debitis delectus!</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+      <!-- basically a spacer -->
+    </div>
+  </div>
+
+
+
+  <footer class="page-footer light-blue darken-2">
+    <div class="container">
+      <div class="row">
+        <div class="col l4 s12">
+          <h5 class="footerLinks center white-text">About</h5>
+        </div>
+        <div class="col l4 s12">
+          <h5 class="footerLinks center white-text">Contact</h5>
+        </div>
+        <div class="col l4 s12">
+          <h5 class="footerLinks center"><a class="white-text" href="https://github.com/iamericanartist">GitHub</a></h5>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="center container">
+      Made by <a class="light-green-text " href="http://www.iamericanartist.com/">Eric Denton / IAmericanArtist</a>
+      </div>
+    </div>
+  </footer>
 
 
   <!--~~~~~~~~~~~~~~~~~~~ LINK TAGS ~~~~~~~~~~~~~~~~~~~-->
@@ -41,7 +158,6 @@
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
     <!-- Materialize: Latest compiled and minified JavaScript -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-  
 
   <!-- APP LINK FIRST -->
   <script src="app/app.js"></script>
