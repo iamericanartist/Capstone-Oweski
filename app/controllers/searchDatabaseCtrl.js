@@ -1,5 +1,16 @@
 "use strict";
 
+
+
+
+
+// API not technically in use/part of project as of right now.
+
+
+
+
+
+
 app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory) {    //injecting the scope here
 
   $scope.movies = [];
