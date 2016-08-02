@@ -19,13 +19,11 @@
 
 
   <!--~~~~~~~~~~~~~~~~~~~~ NAV BAR ~~~~~~~~~~~~~~~~~~~~-->
-  <!-- NOT USING NAV.HTML as the partial breaks the sidebar functionality in Materialize -->
-  <!-- <div ng-include="'partials/nav.html'"></div> -->
   <nav class="light-blue" role="navigation" ng-controller="navCtrl">
     <div class="nav-wrapper container"><a id="logo-container" ng-href="#/" class="brand-logo">OweSki</a>
       <ul class="right hide-on-med-and-down">
         <li><a ng-href="#/main" ng-show="userIsAuthenticated()"><i class="material-icons left">account_circle</i>My OweSkis</a></li>
-        <li><a ng-href="#/loginReg" ng-show="!userIsAuthenticated()">Login</a></li>
+        <li><a ng-href="#/loginReg" ng-show="!userIsAuthenticated()">Register / Login</a></li>
         <li><a ng-show="userIsAuthenticated()" ng-click="logout()">Logout</a></li>
       </ul>
 
