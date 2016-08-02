@@ -14,30 +14,49 @@ $secondary-text-med:  rgba(114,114,114, 1);   //MED GREY    #727272   grey darke
 $divider-color:       rgba(182,182,182, 1);   //LT GREY     #B6B6B6   grey lighten-1
 
 ////////////////////////////////////////////////////////////////////////////////
-.loginRegister {
-  // background: repeating-linear-gradient(45deg, white 0, white 25px, #e1f5fe 25px, #e1f5fe 30px);
+//LOGIN/REGISTER CSS
+.loginModeBg{
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(139, 195, 74, 0.15);
+}
+.regModeBg{
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(244, 67, 54, 0.08);
 }
 
+.qwerqwer{
+  background-color: yellow;
+  margin-bottom: 150px;
+}
+.asdfasdf{
+  background-color: red;
+}
+
+//SIDE NAV CSS
 .side-nav {
   background: repeating-linear-gradient(45deg, white 0, white 25px, #e1f5fe 25px, #e1f5fe 30px);
 }
-
 .userImage{
   margin: 10px 10px 0;
   max-width: 280px;
 }
 
-footer {
-  position:fixed;
-  left:0px;
-  bottom:0px;
-  width:100%;
-}
 
-/* What are THOSE!? */
+//ICON SIZING
 .icon-block {
   padding: 0 15px;
 }
 .icon-block .material-icons {
   font-size: inherit;
+}
+
+
+//FOOTER FIXED TO BOTTOM
+footer {
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  width:100%;
 }

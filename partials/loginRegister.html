@@ -17,7 +17,7 @@
   </div>
 
   <!--~~~~~~~~~~~~~~~~~ REGISTRATION FORM ~~~~~~~~~~~~~~~~~-->
-  <form class="col s8 offset-s2" ng-show="registerMode">      <!-- see loginRegisterCtrl -->
+  <form class="col s8 offset-s2 regModeBg" ng-show="registerMode">      <!-- see loginRegisterCtrl -->
     <div class="row">
       <div class="input-field col s12">
         <input id="email" type="email" class="validate" ng-model="regEmail">
@@ -38,7 +38,7 @@
   </form>
 
   <!--~~~~~~~~~~~~~~~~~~~ LOGIN FORM ~~~~~~~~~~~~~~~~~~~-->
-  <form class="col s8 offset-s2" ng-show="!registerMode">      <!-- see loginRegisterCtrl -->
+  <form class="col s8 offset-s2 loginModeBg" ng-show="!registerMode">      <!-- see loginRegisterCtrl -->
     <div class="row">
       <div class="input-field col s12">
         <input id="email" type="email" class="validate" ng-model="loginEmail">
