@@ -1,58 +1,59 @@
 <div class="row loginRegister">
-  <!-- ============= BUTTON TOGGLE ============= -->
+  <!--~~~~~~~~~~~~~~~~~~ BUTTON TOGGLE ~~~~~~~~~~~~~~~~~~-->
   <div class="row">
     <div class="col s4 offset-s4">
       <div class="row valign">
+        
         <!-- Choose whether or not we are NEW USER or EXISTING USER -->
         <div class="col s6">
-          <a class="waves-effect waves-light btn red" ng-click="activateRegisterMode()">register</a>
+          <a class="waves-effect waves-light btn red" ng-click="activateRegisterMode()">register</a>    <!-- shows "REGISTRATION FORM", hides "LOGIN FORM" // in loginRegisterCtrl, runs "activateRegisterMode()" -->
         </div>
         <div class="col s6">
-          <a class="waves-effect waves-light btn light-green" ng-click="activateLoginMode()">login</a>
+          <a class="waves-effect waves-light btn light-green" ng-click="activateLoginMode()">login</a>    <!-- shows "LOGIN FORM", hides "REGISTRATION FORM" // in loginRegisterCtrl, runs "activateLoginMode()" -->
         </div>
 
       </div>
     </div>
   </div>
 
-  <!-- ============= REGISTRATION FORM ============= -->
+  <!--~~~~~~~~~~~~~~~~~ REGISTRATION FORM ~~~~~~~~~~~~~~~~~-->
   <form class="col s8 offset-s2" ng-show="registerMode">      <!-- see loginRegisterCtrl -->
     <div class="row">
       <div class="input-field col s12">
         <input id="email" type="email" class="validate" ng-model="regEmail">
-        <label for="email">Email</label>
+        <label for="email">Email</label>    <!-- ng-model="regEmail" captures email input from user-->
       </div>
       <div class="input-field col s12">
         <input id="password" type="password" class="validate" ng-model="regPassword">
-        <label for="password">Password</label>
+        <label for="password">Password</label>    <!-- ng-model="regPassword" captures password input from user-->
       </div>
     </div>
 
     <div class="row">
       <div class="center-align">
         <button class="btn waves-effect waves-light btn-large red" ng-click="onRegisterClick()">Register<i class="material-icons right">send</i>
-        </button>
+        </button>   <!-- ng-model="onRegisterClick()" takes user inputs above and runs "createUser()" -->
       </div>
     </div>
   </form>
 
-  <!-- ============= LOGIN FORM ============= -->
+  <!--~~~~~~~~~~~~~~~~~~~ LOGIN FORM ~~~~~~~~~~~~~~~~~~~-->
   <form class="col s8 offset-s2" ng-show="!registerMode">      <!-- see loginRegisterCtrl -->
     <div class="row">
       <div class="input-field col s12">
         <input id="email" type="email" class="validate" ng-model="loginEmail">
-        <label for="email">Email</label>
+        <label for="email">Email</label>    <!-- ng-model="loginEmail" captures email input from user-->
       </div>
       <div class="input-field col s12">
         <input id="password" type="password" class="validate" ng-model="loginPassword">
-        <label for="password">Password</label>
+        <label for="password">Password</label>    <!-- ng-model="loginPassword" captures password input from user-->
       </div>
     </div>
 
     <div class="row">
       <div class="center-align">
         <button class="btn waves-effect waves-light btn-large light-green" ng-click="onLoginClick()">Login<i class="material-icons right">send</i>
-        </button>
+        </button>   <!-- ng-model="onLoginClick()" takes user inputs above and runs "createUser()" -->
       </div>
     </div>
   </form>

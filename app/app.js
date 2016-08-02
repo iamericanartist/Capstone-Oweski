@@ -6,45 +6,30 @@ var app = angular.module("OweSkiApp", ["ngRoute"]);                       // "Ow
 
 app.config(function($routeProvider, FireCreds) {                          // links the controllers to the partials
 
-  let authConfig = {
-    apiKey: FireCreds.apiKey,
-    authDomain: FireCreds.authDomain
-  };
-  firebase.initializeApp(authConfig);
-
-
   $routeProvider                                    // ALL ROUTING INFORMATION
    .when('/', {                                     // WHEN at "/"...
+     templateUrl: 'partials/splash.html',           // ...show this partial...
+     // controller: 'loginRegisterCtrl'             // ...using this controller.  NOT NEEDED
+   })
+   .when('/loginReg', {                             // WHEN at "/loginReg"...
      templateUrl: 'partials/loginRegister.html',    // ...show this partial...
      controller: 'loginRegisterCtrl'                // ...using this controller.
    })
    .when('/main', {                                 // WHEN at "/main"...
-     templateUrl: 'partials/main.html',             // ...show this partial...
-     controller: 'mainCtrl'                         // ...using this controller.
+     templateUrl: 'partials/main.html',  //FIX ME             // ...show this partial...
+     // controller: 'mainCtrl'  //FIX ME                       // ...using this controller.
    })
-  .otherwise('/main');                              // OTHERWISE go to this partial (MAIN)...
+   .when('/logoutSplash', {                         // WHEN at "/logoutSplash"...
+     templateUrl: 'partials/logoutSplash.html',  //FIX ME          // ...show this partial...
+     // controller: 'logoutSplash'  //FIX ME                    // ...using this controller.
+   })
+   // .when('/account', {                              // WHEN at "/main"...
+   //   templateUrl: 'partials/account.html',  //FIX ME          // ...show this partial...
+   //   controller: 'accountCtrl'  //FIX ME                    // ...using this controller.
+   // })
+  .otherwise('/');                                  // OTHERWISE go to this partial (MAIN)...
 });                                                 // end of app.config
 
-   // .when('/input', {
-   //   templateUrl: 'partials/profile.html',
-   //   controller: 'inputMadlibCtrl'
-   // })
-   // .when('/output', {
-   //   templateUrl: 'partials/outputMadlib.html',
-   //   controller: 'outputMadlibCtrl'
-   // })
-   // .when('/login', {
-   //   templateUrl: 'partials/loginRegister.html',
-   //   controller: 'loginCtrl'
-   // })
-   // .when('/logout', {
-   //   templateUrl: 'partials/loginRegister.html',
-   //   controller: 'loginCtrl'
-   // })
-   // .when('/beesknees', {
-   //   templateUrl: 'partials/inputMadlib.html',
-   //   controller: 'inputMadlibCtrl'
-   // });
 
 $('.button-collapse').sideNav({
       menuWidth: 300, // Default is 240
@@ -53,4 +38,12 @@ $('.button-collapse').sideNav({
     }
   );
 
-// $(".button-collapse").sideNav();
+
+
+//not used in this method - see bottom of AuthFactory as well
+  // let authConfig = {
+  //   apiKey: FireCreds.apiKey,
+  //   authDomain: FireCreds.authDomain
+  // };
+  // firebase.initializeApp(authConfig);
+
