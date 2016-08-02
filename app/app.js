@@ -6,13 +6,6 @@ var app = angular.module("OweSkiApp", ["ngRoute"]);                       // "Ow
 
 app.config(function($routeProvider, FireCreds) {                          // links the controllers to the partials
 
-  // let authConfig = {
-  //   apiKey: FireCreds.apiKey,
-  //   authDomain: FireCreds.authDomain
-  // };
-  // firebase.initializeApp(authConfig);
-
-
   $routeProvider                                    // ALL ROUTING INFORMATION
    .when('/', {                                     // WHEN at "/"...
      templateUrl: 'partials/splash.html',           // ...show this partial...
@@ -26,14 +19,14 @@ app.config(function($routeProvider, FireCreds) {                          // lin
      templateUrl: 'partials/main.html',  //FIX ME             // ...show this partial...
      // controller: 'mainCtrl'  //FIX ME                       // ...using this controller.
    })
-   // .when('/account', {                              // WHEN at "/main"...
-   //   templateUrl: 'partials/account.html',  //FIX ME          // ...show this partial...
-   //   controller: 'accountCtrl'  //FIX ME                    // ...using this controller.
-   // })
    .when('/logoutSplash', {                         // WHEN at "/logoutSplash"...
      templateUrl: 'partials/logoutSplash.html',  //FIX ME          // ...show this partial...
      // controller: 'logoutSplash'  //FIX ME                    // ...using this controller.
    })
+   // .when('/account', {                              // WHEN at "/main"...
+   //   templateUrl: 'partials/account.html',  //FIX ME          // ...show this partial...
+   //   controller: 'accountCtrl'  //FIX ME                    // ...using this controller.
+   // })
   .otherwise('/');                                  // OTHERWISE go to this partial (MAIN)...
 });                                                 // end of app.config
 
@@ -44,3 +37,13 @@ $('.button-collapse').sideNav({
       closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
     }
   );
+
+
+
+//not used in this method - see bottom of AuthFactory as well
+  // let authConfig = {
+  //   apiKey: FireCreds.apiKey,
+  //   authDomain: FireCreds.authDomain
+  // };
+  // firebase.initializeApp(authConfig);
+
