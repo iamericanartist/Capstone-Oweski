@@ -20,7 +20,7 @@
 
   <!--~~~~~~~~~~~~~~~~~~~~ NAV BAR ~~~~~~~~~~~~~~~~~~~~-->
   <nav class="light-blue" role="navigation" ng-controller="navCtrl">
-    <div class="nav-wrapper container"><a id="logo-container" ng-href="#/" class="brand-logo">OweSki</a>
+    <div class="nav-wrapper container"><a id="logo-container" ng-href="#/main" class="brand-logo">OweSki</a>
       <ul class="right hide-on-med-and-down">
         <li><a ng-href="#/main" ng-show="userIsAuthenticated()"><i class="material-icons left">account_circle</i>My OweSkis</a></li>
         <li><a ng-href="#/loginReg" ng-show="!userIsAuthenticated()">Register / Login</a></li>
@@ -104,7 +104,7 @@
   
   <!-- CONTROLLERS LAST -->
   <script src="app/controllers/loginRegisterCtrl.js"></script>
-  <script src="app/controllers/searchDatabaseCtrl.js"></script>
+  <!-- <script src="app/controllers/searchDatabaseCtrl.js"></script> -->
   <script src="app/controllers/navCtrl.js"></script>
   <!-- END LINK TAGS -->
 
