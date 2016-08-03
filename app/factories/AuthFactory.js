@@ -47,7 +47,7 @@ app.factory("AuthFactory", function($location, $rootScope){
     return currentUserId;                         // GETTER to give access to currentUserId
   };
 
-  window.user = getUser;  // using to debug
+  // window.user = getUser;  // using to debug
 
   let setUser = function(uid){
     currentUserId = uid;                          // SETTER to set currentUserId as "uid"
@@ -56,6 +56,11 @@ app.factory("AuthFactory", function($location, $rootScope){
   let logout = function(){
     currentUserId = null;                         // Sets currentUserId as "null" to indicate user is not logged in
   };
+
+  const postUserFB = function(){
+    
+  }
+
 
   return {createUser, loginUser, isAuthenticated, getUser, setUser, currentUserId, logout};
 });
@@ -79,7 +84,7 @@ app.run(["$location", "FireCreds", "AuthFactory", function ($location, FireCreds
       $scope.$apply();
       console.log("user/main", user.uid);
     } else {
-      AuthFactory.setUser(null); //this is to rest the current user to hide board.
+      AuthFactory.setUser(null);      //this is to test the current user to hide board.
       $location.url("/");
       $scope.$apply();
     }
