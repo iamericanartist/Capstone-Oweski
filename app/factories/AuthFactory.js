@@ -47,8 +47,6 @@ app.factory("AuthFactory", function($location, $rootScope){
     return currentUserId;                         // GETTER to give access to currentUserId
   };
 
-  // window.user = getUser;  // using to debug
-
   let setUser = function(uid){
     currentUserId = uid;                          // SETTER to set currentUserId as "uid"
   };
@@ -56,11 +54,6 @@ app.factory("AuthFactory", function($location, $rootScope){
   let logout = function(){
     currentUserId = null;                         // Sets currentUserId as "null" to indicate user is not logged in
   };
-
-  const postUserFB = function(){
-    
-  }
-
 
   return {createUser, loginUser, isAuthenticated, getUser, setUser, currentUserId, logout};
 });
