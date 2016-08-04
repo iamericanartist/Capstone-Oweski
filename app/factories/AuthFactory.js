@@ -5,20 +5,8 @@ app.factory("AuthFactory", function($location, $rootScope){
   let currentUserId = null;
 
   let createUser = function(email, password){
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(function(object){console.log("Register",object);
-      Materialize.toast("Welcome!" + object.uid, 5000, "green");          //FIX! Should pop up a congratulatory message "Welcome User!"
-      $location.url("/main");
-      $rootScope.$apply();
-  })
+    return firebase.auth().createUserWithEmailAndPassword(email, password);
 
-    .catch(function(error){                              // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-
-      console.log("errorMessage", errorMessage);
-      Materialize.toast(errorMessage, 5000, "orange");  //FIX! Should pop up an error message "Try that again!" etc
-    });
   };
 
   let loginUser = function (email, password){
