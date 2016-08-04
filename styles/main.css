@@ -10,11 +10,8 @@
   background-color: rgba(244, 67, 54, 0.08); }
 
 .qwerqwer {
-  background-color: yellow;
+  background: linear-gradient(165deg, #B0E1F7 50%, #ABDBF0 50%);
   margin-bottom: 150px; }
-
-.asdfasdf {
-  background-color: red; }
 
 .side-nav {
   background: repeating-linear-gradient(45deg, white 0, white 25px, #e1f5fe 25px, #e1f5fe 30px); }

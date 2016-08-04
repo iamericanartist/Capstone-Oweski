@@ -15,6 +15,6 @@ app.factory("UsersFactory", function(FirebaseURL, $q, $http){
     });
   };
 
-  return {postUser};
+  return {postUser};    // invoked in loginRegisterCtrl.js in onRegisterClick
 
 });
