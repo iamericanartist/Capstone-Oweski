@@ -18,20 +18,25 @@ app.config(function($routeProvider, FireCreds) {    // links the controllers to 
      templateUrl: 'partials/main.html',             // ...show this partial...
      // controller: 'mainCtrl'              //FIX ME                       // ...using this controller.
    })
+   .when('/newOweski', {                              // WHEN at "/main"...
+     templateUrl: 'partials/newOweski.html',          // ...show this partial...
+     controller: 'oweskiViewCtrl'                   // ...using this controller.
+   })
    .when('/logoutSplash', {                         // WHEN at "/logoutSplash"...
      templateUrl: 'partials/logoutSplash.html',     // ...show this partial...
-   })
-   .when('/newOweski', {                              // WHEN at "/main"...
-     templateUrl: 'partials/newOweski.html',  //FIX ME          // ...show this partial...
-     // controller: 'accountCtrl'  //FIX ME                    // ...using this controller.
    })
   .otherwise('/main');                              // OTHERWISE go to this partial (MAIN)...
 });                                                 // end of app.config
 
 
+// MATERIALIZE INITIALIZATIONS
 $('.button-collapse').sideNav({                     // needed JS for hamburger collapse menu to work
       menuWidth: 300,                               // Default is 240
       edge: 'left',                                 // Choose the horizontal origin
       closeOnClick: true                            // Closes side-nav on <a> clicks, useful for Angular/Meteor
     }
   );
+
+// $(document).ready(function() {                     // needed JS for select element menu to work
+//   $('select').material_select();
+// });
