@@ -12,7 +12,7 @@ app.factory("AuthFactory", function($location, $rootScope){
   let loginUser = function (email, password){
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(function(object){console.log("Login",object);
-      Materialize.toast("Welcome Back, " + object.uid, 5000, "blue");          //FIX! Should pop up a congratulatory message "Welcome back User!"
+      Materialize.toast("Welcome Back, " + object.email, 5000, "purple");     // pop up a congratulatory message "Welcome back User!"
       $location.url("/main");
       $rootScope.$apply();
   })
@@ -71,17 +71,3 @@ app.run(["$location", "FireCreds", "AuthFactory", function ($location, FireCreds
     }
   });
 }]);
-
-
-
-//not used in this method - see bottom of app.js as well
-  // firebase.auth().onAuthStateChanged(function(user){
-  //   if (user){
-  //       currentUserId = user.uid;
-  //   } else {
-  //       currentUserId = null;
-
-  //       console.log("Not logged in");
-  //       Materialize.toast("Please Log In! ", 5000, "red");
-  //   }
-  // });

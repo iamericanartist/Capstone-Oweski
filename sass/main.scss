@@ -27,12 +27,11 @@ $divider-color:       rgba(182,182,182, 1);   //LT GREY     #B6B6B6   grey light
 }
 
 .qwerqwer{
-  background-color: yellow;
+  // background-color: $primary-color-light;
+  background: linear-gradient(165deg, #B0E1F7 50%, #ABDBF0 50%);
   margin-bottom: 150px;
 }
-.asdfasdf{
-  background-color: red;
-}
+
 
 //SIDE NAV CSS
 .side-nav {
