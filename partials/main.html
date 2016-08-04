@@ -1,31 +1,66 @@
 
-
-
-
-<!-- FIX ME -->
-
-<h2>
-asdfasdf
-</h2>
-<!-- ============= SEARCH BAR ============= -->
+<h2>Oweski Central</h2>
+<!-- ============= CARDS TO HOLD user oweski RESULTS ============= -->
 <div class="row">
-  <form id="databaseSearch">
-    <input type="text" ng-model="movieToSearch" placeholder="Search movie database..." class="col s9 offset-s1">
-    <!-- <button class="waves-effect waves-light btn-floating teal btn" ng-click="searchDatabase(movieToSearch)"><i class="material-icons">search</i></button> -->
-  </form>
-</div>
-
-
-<!-- ============= CARDS TO HOLD MOVIE RESULTS ============= -->
-<div class="row">
-  <div class="card col s4"  ng-repeat="movie in movies">
-    <div class="card-image">
-      <img ng-src="{{movie.Poster}}">    <!-- ng-src for images in ng-repeats (angular) -->
-    </div>
-    <div class="card-content red accent-4">
-      <p>{{movie.Title}}</p>
-      <p>{{movie.Type}}</p>
-      <p>{{movie.Year}}</p>
+  <h4>Your Oweskis</h4>
+  <div class="card col s4"  ng-repeat="oweski in oweskis">
+    <!-- <div class="card-image">
+      <img ng-src="{{movie.Poster}}">    ng-src for images in ng-repeats (angular)
+    </div> -->
+    <div class="card-content orange accent-4">
+      <p>{{oweski.user1}}</p>
+      <p>{{oweski.user2}}</p>
+      <p>{{oweski.count}}</p>
     </div>
   </div>
 </div>
+
+
+
+
+<!-- ============= SEARCH BAR ============= -->
+<!-- <div class="row">
+  <form id="databaseSearch">
+    <input type="text" ng-model="oweskiToSearch" placeholder="Search oweski database..." class="col s9 offset-s1">
+    <button class="waves-effect waves-light btn-floating teal btn" ng-click="searchDatabase(oweskiToSearch)"><i class="material-icons">search</i></button>
+  </form>
+</div>
+ -->
+
+      <div class="row">
+      <input type="text" class="form-control" placeholder="Search for..." ng-model="searchText">
+        <div class="panel panel-default">
+          <div class="panel-body cardPanelBody">
+
+            <div ng-repeat="board in boards | filter: userID | filter: searchText">
+              <div class="card col s4">
+                
+                <a href="#/pinhead/board/{{board.id}}">
+                <div class="row boardTitle">
+                  <h2>{{board.title}}</h2>
+                </div>
+                </a>
+
+                <div class="row boardRow">
+                  {{board.tags}}
+                </div>
+                <div class="row deleteBoardRow">
+                  <button type="btn btn-default" ng-click="deleteBoardCall(board.id)" class="deleteButtons">Delete</button>
+                </div>  <!-- class="row deleteBoardRow"> -->
+              </div>   <!-- class="col-xs-4 board"> -->
+            </div>  <!-- ng-repeat -->
+
+
+            <div class="col-xs-4 board">
+              <div class="row spacer"> </div>
+              <a class="addBoardDiv" ng-href="#/pinhead/newboard">
+                <span class="glyphicon glyphicon-pushpin biggerIcon" aria-hidden="true"></span>
+                 <h3>Add Board</h3>
+              </a>
+              <div class="row spacer"> </div>
+            </div>  <!-- class="col-xs-4 board"> -->
+
+
+          </div>  <!-- class="panel-body cardPanelBody"> -->
+        </div>   <!-- class="panel panel-default DONOTSTYLETHIS"> -->
+      </div>

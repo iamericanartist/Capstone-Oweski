@@ -1,37 +1,104 @@
-<div>  
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <br>
-      <h1 class="header center orange-text">New Oweski, BroSki?</h1>
-      <div class="row center">
-        <h3 class="header col s12 light">Who with?</h3>
-      </div>
 
-      <div class="">
-        <form>
-          <div class="form-group">
-            <h5>Choose Your Broski!</h5>
-            <input type="text" class="form-control" value="" placeholder="Your Broski Dropdown filled with all users!" ng-model="newBoard.title" autofocus />
-          </div>
-          <div class="form-group">
-            <h5>Tags</h5>
-            <input type="text" class="form-control" value="" placeholder="" ng-model="newBoard.tags"/>
-          </div>
-<!--           <button class="btn btn-default" ng-click="addNewBoard()">Submit</button><a class="btn btn-default" ng-href="#/pinhead/mainboard">Cancel</a> -->
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <br>
+    <h1 class="header center orange-text">New Oweski, BroSki?</h1>
+    <div class="row center">
+      <h3 class="header col s12 light">Who with?</h3>
+    </div>
+    
+
+    <div>
+      <form>
+        <form action="#">
+          <p>
+            <div class="col s6 m3 center">
+              <input name="group1" type="radio" id="test0" />
+              <label for="test0">"{{user in users}}</label>
+            </div>
+          </p>
+          <p>
+            <input name="group1" type="radio" id="test1" />
+            <label for="test1">Red@skeleton.net</label>
+          </p>
+          <p>
+            <input name="group1" type="radio" id="test2" />
+            <label for="test2">Yellow@belly.io</label>
+          </p>
+          <p>
+            <input name="group1" type="radio" id="test3"  />
+            <label for="test3">Green@mountain.us</label>
+          </p>
         </form>
-      </div>
 
-      <div class="row center">
-        <div class="col s12">
-        <a ng-href="#/main" id="register" class="btn-large waves-effect waves-light green">They OweSki! / +1 for me! </a></div>
-        <div class="col s12">
-        <a ng-href="#/main" id="register" class="btn-large waves-effect waves-light orange">~ RAND-OWESKI! ~ </a></div>
-        <div class="col s12">
-        <a ng-href="#/main" id="register" class="btn-large waves-effect waves-light red">I OweSki! / -1 for me! </a></div>
+        <!-- <div class="form-group">
+          <h5>Choose Your Broski!</h5>
+          <div class="input-field col s12">
+            <select>
+              <option value="" disabled selected>Choose your option</option>
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+              <option value="3">Option 3</option>
+            </select>
+            <label>Select Your Broski:</label>
+          </div>
+        </div>
+        <br/> -->
+
+        <div class="form-group">
+          <h5>Tags</h5>
+          <input type="text" class="form-control" value="" placeholder="" ng-model="newBoard.tags"/>
+        </div>
+          <!-- <button class="btn btn-default" ng-click="addNewBoard()">Submit</button><a class="btn btn-default" ng-href="#/pinhead/mainboard">Cancel</a> -->
+      </form>
+    </div>
+
+
+  <!-- Card Content -->
+    <div>
+      <div class="row">
+
+        <div class="col s12 m4 center plus1">
+          <div class="card green">
+          <a ng-href="#/main" id="register">
+            <div class="card-content white-text">
+              <span class="card-title">They OweSki!</span>
+              <hr/>
+              <h5>+1 for me!</h5>
+            </div>
+            </a>
+            <!-- <div class="card-action"></div> -->
+          </div>
+        </div>
+
+        <div class="col s12 m4 center randowski">
+          <div class="card orange">
+          <a ng-href="#/main" id="register">
+            <div class="card-content white-text">
+              <span class="card-title">RAND-OWESKI!</span>
+              <hr/>
+              <h5>Let Oweski Decide!</h5>
+            </div>
+            </a>
+            <!-- <div class="card-action"></div> -->
+          </div>
+        </div>
+
+        <div class="col s12 m4 center minus1">
+          <div class="card red">
+          <a ng-href="#/main" id="register">
+            <div class="card-content white-text">
+              <span class="card-title">I OweSki!</span>
+              <hr/>
+              <h5>-1 for me!</h5>
+            </div>
+            </a>
+            <!-- <div class="card-action"></div> -->
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
 
-
-
-
+  </div>  <!-- END class="container"> --> 
+</div>  <!-- END class="section no-pad-bot" id="index-banner"> -->
