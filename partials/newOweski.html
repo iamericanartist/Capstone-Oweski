@@ -4,11 +4,30 @@
       <br>
       <h1 class="header center orange-text">New Oweski, BroSki?</h1>
       <div class="row center">
-        <h5 class="header col s12 light">Who with?</h5>
+        <h3 class="header col s12 light">Who with?</h3>
       </div>
+
+      <div class="">
+        <form>
+          <div class="form-group">
+            <h5>Choose Your Broski!</h5>
+            <input type="text" class="form-control" value="" placeholder="Your Broski Dropdown filled with all users!" ng-model="newBoard.title" autofocus />
+          </div>
+          <div class="form-group">
+            <h5>Tags</h5>
+            <input type="text" class="form-control" value="" placeholder="" ng-model="newBoard.tags"/>
+          </div>
+<!--           <button class="btn btn-default" ng-click="addNewBoard()">Submit</button><a class="btn btn-default" ng-href="#/pinhead/mainboard">Cancel</a> -->
+        </form>
+      </div>
+
       <div class="row center">
-        <a ng-href="#/main" id="register" class="btn-large waves-effect waves-light green">They OweSki! / +1 for me! </a>
-        <a ng-href="#/main" id="register" class="btn-large waves-effect waves-light red">I OweSki! / -1 for me... </a>
+        <div class="col s12">
+        <a ng-href="#/main" id="register" class="btn-large waves-effect waves-light green">They OweSki! / +1 for me! </a></div>
+        <div class="col s12">
+        <a ng-href="#/main" id="register" class="btn-large waves-effect waves-light orange">~ RAND-OWESKI! ~ </a></div>
+        <div class="col s12">
+        <a ng-href="#/main" id="register" class="btn-large waves-effect waves-light red">I OweSki! / -1 for me! </a></div>
       </div>
     </div>
   </div>
@@ -16,18 +35,3 @@
 
 
 
-
-<div class="col-xs-8 col-xs-offset-2">
-  <h1>New Board</h1>
-  <form>
-    <div class="form-group">
-      <label>Title</label>
-      <input type="text" class="form-control" value="" placeholder="Title" ng-model="newBoard.title" autofocus />
-    </div>
-    <div class="form-group">
-      <label>Tags</label>
-      <input type="text" class="form-control" value="" placeholder="" ng-model="newBoard.tags"/>
-    </div>
-    <button class="btn btn-default" ng-click="addNewBoard()">Submit</button><a class="btn btn-default" ng-href="#/pinhead/mainboard">Cancel</a>
-  </form>
-</div>
