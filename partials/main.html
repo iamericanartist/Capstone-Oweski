@@ -32,33 +32,32 @@
         <div class="panel panel-default">
           <div class="panel-body cardPanelBody">
 
-            <div ng-repeat="board in boards | filter: userID | filter: searchText">
+            <div ng-repeat="oweski in oweskis | filter: userID | filter: searchText">
               <div class="card col s4">
                 
-                <a href="#/pinhead/board/{{board.id}}">
+                <a href="#/oweski/{{oweski.id}}">
                 <div class="row boardTitle">
-                  <h2>{{board.title}}</h2>
+                  <h2>{{oweski.title}}</h2>
                 </div>
                 </a>
 
                 <div class="row boardRow">
-                  {{board.tags}}
+                  {{oweski.tags}}
                 </div>
                 <div class="row deleteBoardRow">
-                  <button type="btn btn-default" ng-click="deleteBoardCall(board.id)" class="deleteButtons">Delete</button>
+                  <button type="btn btn-default" ng-click="deleteBoardCall(oweski.id)" class="deleteButtons">Delete</button>
                 </div>  <!-- class="row deleteBoardRow"> -->
-              </div>   <!-- class="col-xs-4 board"> -->
+              </div>   <!-- class="col-xs-4 oweski"> -->
             </div>  <!-- ng-repeat -->
 
 
-            <div class="col-xs-4 board">
+            <div class="col-xs-4 oweski">
               <div class="row spacer"> </div>
-              <a class="addBoardDiv" ng-href="#/pinhead/newboard">
-                <span class="glyphicon glyphicon-pushpin biggerIcon" aria-hidden="true"></span>
-                 <h3>Add Board</h3>
+              <a class="addOweskiDiv" ng-href="#/newOweski">
+                 <h3>New Oweski!</h3>
               </a>
               <div class="row spacer"> </div>
-            </div>  <!-- class="col-xs-4 board"> -->
+            </div>  <!-- class="col-xs-4 oweski"> -->
 
 
           </div>  <!-- class="panel-body cardPanelBody"> -->

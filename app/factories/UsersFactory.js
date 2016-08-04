@@ -13,8 +13,20 @@ app.factory("UsersFactory", function(FirebaseURL, $q, $http){
         reject(error);
       });
     });
+  };  
+
+  const getUsers = function(){
+    return $q(function(resolve, reject){
+      $http.get(`${FirebaseURL}/users.json`)
+      .success(function(data){
+        resolve(data);
+      })
+      .error(function(error){
+        reject(error);
+      });
+    });
   };
 
-  return {postUser};    // invoked in loginRegisterCtrl.js in onRegisterClick
+  return {postUser, getUsers};    // invoked in loginRegisterCtrl.js in onRegisterClick
 
 });
