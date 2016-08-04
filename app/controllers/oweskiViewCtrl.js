@@ -7,16 +7,17 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
 
   $scope.oweskis = [];                                        // sets an empty array to be added to below
 
-  if (AuthFactory.isAuthenticated()) {                        // if user logged in and validated...
-    ItemStorage.getOweski($scope.userID)                      // ...get this oweski with this userID...
-      .then(function(oweskiCollection) {
-        $scope.oweskis = oweskiCollection;                    // ...then reveal this userID's oweskiCollection
 
-        $scope.selectedBoard = $scope.oweskis.filter(function(thisOweski) {     //???
-          return thisOweski.id === $routeParams.boardId;                        //???
-        })[0];    //???
-      });
-  } else {}
+  UsersFactory.getUsers()
+  .then(function(result){
+    console.log("list of users",result);
+    let userArr = [];
+    angular.forEach(result, (v, i) => {
+      userArr.push(v);
+    })
+    console.log("teat", userArr);
+    $scope.listOfUsers = userArr;
+  });
 
 
   $scope.deleteOweskiCall = function(deleteThisOweski) {
@@ -30,4 +31,6 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
           });
       });
   };
+
 });
+

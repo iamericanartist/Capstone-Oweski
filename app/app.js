@@ -37,6 +37,3 @@ $('.button-collapse').sideNav({                     // needed JS for hamburger c
     }
   );
 
-// $(document).ready(function() {                     // needed JS for select element menu to work
-//   $('select').material_select();
-// });
