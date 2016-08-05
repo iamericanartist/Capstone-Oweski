@@ -19,18 +19,29 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
     $scope.listOfUsers = userArr;
   });
 
+  $scope.addOweski = function(){
+    let oweski = {};
+    oweski.user1 = AuthFactory.getUserEmail();
+    oweski.user2 = $scope.oweski.user2;
+    oweski.count = 1;
+    oweski.tags = $scope.oweski.tags.split(" ");
+    
+    OweskiFactory.postOweski(oweski)
+    .then(function(result){console.log("They Oweski Posted", result);
+    });
+  }
 
-  $scope.deleteOweskiCall = function(deleteThisOweski) {
-    ItemStorage.deleteOweski(deleteThisOweski)                // deleteOweski from OweskiFactory.js
-      .then((oweskiCollection) => {
-        $scope.oweskis = oweskiCollection;                    // setting oweskiCollection
-        $location.path("/partials/main");                     // redirecting our path to main partial
-        ItemStorage.getoweskis()                              // getOweski from OweskiFactory.js
-          .then((oweskiCollection) => {
-            $scope.oweskis = oweskiCollection;                // "updating" oweskiCollection after delete
-          });
-      });
-  };
+  $scope.randOweski = function(){
+    let oweski = {};
+    oweski.user1 = AuthFactory.getUserEmail();
+    oweski.user2 = $scope.oweski.user2;
+    oweski.count = Math.round(Math.random()) == 0 ? -1 : 1;       // if 0 then = -1, otherwise 1
+    oweski.tags = $scope.oweski.tags.split(" ");
+
+    OweskiFactory.postOweski(oweski)
+    .then(function(result){console.log("RandOweski Posted", result);
+    });
+  }
 
 });
 
