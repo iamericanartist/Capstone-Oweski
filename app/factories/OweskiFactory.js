@@ -16,11 +16,11 @@ app.factory("OweskiFactory", function(FirebaseURL, $q, $http){
   };
 
 
-  let getOweski = function(currentUserID) {
-    console.log("userID", currentUserID);
+  let getOweski = function(currentUserEmail) {
+    console.log("userID", currentUserEmail);
     let oweskis = [];
     return $q(function(resolve, reject) {
-      $http.get(`${FirebaseURL}/oweskis.json?orderBy="user1"&equalTo="${currentUserID}"`)
+      $http.get(`${FirebaseURL}/oweskis.json?orderBy="user1"&equalTo="${currentUserEmail}"`)
         .success(function(oweskiObject) {
           let oweskiCollection = oweskiObject;
           Object.keys(oweskiCollection).forEach(function(key) {

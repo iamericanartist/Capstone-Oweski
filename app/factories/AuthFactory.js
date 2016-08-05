@@ -3,6 +3,7 @@
 app.factory("AuthFactory", function($location, $rootScope){
 
   let currentUserId = null;
+  let currentUserEmail = null;
 
   let createUser = function(email, password){
     return firebase.auth().createUserWithEmailAndPassword(email, password);
@@ -12,6 +13,7 @@ app.factory("AuthFactory", function($location, $rootScope){
   let loginUser = function (email, password){
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(function(object){console.log("Login",object);
+      currentUserEmail = object.email;
       Materialize.toast("Welcome Back, " + object.email, 5000, "purple");     // pop up a congratulatory message "Welcome back User!"
       $location.url("/main");
       $rootScope.$apply();
@@ -35,15 +37,20 @@ app.factory("AuthFactory", function($location, $rootScope){
     return currentUserId;                         // GETTER to give access to currentUserId
   };
 
+  let getUserEmail = function(){
+    return currentUserEmail;                         // GETTER to give access to currentUserId
+  };
+
   let setUser = function(uid){
     currentUserId = uid;                          // SETTER to set currentUserId as "uid"
   };
 
   let logout = function(){
     currentUserId = null;                         // Sets currentUserId as "null" to indicate user is not logged in
+    currentUserEmail = null;
   };
 
-  return {createUser, loginUser, isAuthenticated, getUser, setUser, currentUserId, logout};
+  return {createUser, loginUser, isAuthenticated, getUser, getUserEmail, setUser, currentUserId, logout};
 });
 
 
