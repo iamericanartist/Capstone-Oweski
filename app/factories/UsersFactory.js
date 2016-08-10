@@ -15,14 +15,14 @@ app.factory("UsersFactory", function(FirebaseURL, $q, $http){
     });
   };  
 
-  const getUsers = function(){
-    return $q(function(resolve, reject){
-      $http.get(`${FirebaseURL}/users.json`)
-      .success(function(data){
-        resolve(data);
+  const getUsers = function(){                    // getUsers from the Firebase dataset "users"
+    return $q(function(resolve, reject){          // Angular promise ($q) that retrieves list of users...
+      $http.get(`${FirebaseURL}/users.json`)      // ...from XHR ($http) request to the FirebaseURL 
+      .success(function(data){                    // upon success,
+        resolve(data);                            // resolve data
       })
-      .error(function(error){
-        reject(error);
+      .error(function(error){                     // upon error,
+        reject(error);                            // reject with error message
       });
     });
   };

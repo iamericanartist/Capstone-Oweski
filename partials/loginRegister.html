@@ -1,15 +1,29 @@
+
+<div>  
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br>
+      <h1 class="header center orange-text">"No Worries... Just <b class="red-text">"Oweski Me"</b>, BroSki!</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">No one likes keeping mental score of "who got last..." Let OweSki do it for you!</h5>
+      </div>
+    </div>
+  </div>
+
 <div class="row loginRegister">
   <!--~~~~~~~~~~~~~~~~~~ BUTTON TOGGLE ~~~~~~~~~~~~~~~~~~-->
+  <div class="row"><br></div>
+
   <div class="row">
-    <div class="col s4 offset-s4">
+    <div class="col s8 offset-s2">
       <div class="row valign">
         
         <!-- Choose whether or not we are NEW USER or EXISTING USER -->
-        <div class="col s6">
-          <a class="waves-effect waves-light btn red" ng-click="activateRegisterMode()">register</a>    <!-- shows "REGISTRATION FORM", hides "LOGIN FORM" // in loginRegisterCtrl, runs "activateRegisterMode()" -->
+        <div class="col s6 center">
+          <a class="waves-effect waves-light btn red loginRegisterBtns" ng-click="activateRegisterMode()">Register</a>    <!-- shows "REGISTRATION FORM", hides "LOGIN FORM" // in loginRegisterCtrl, runs "activateRegisterMode()" -->
         </div>
-        <div class="col s6">
-          <a class="waves-effect waves-light btn light-green" ng-click="activateLoginMode()">login</a>    <!-- shows "LOGIN FORM", hides "REGISTRATION FORM" // in loginRegisterCtrl, runs "activateLoginMode()" -->
+        <div class="col s6 center">
+          <a class="waves-effect waves-light btn light-green loginRegisterBtns" ng-click="activateLoginMode()">Login</a>    <!-- shows "LOGIN FORM", hides "REGISTRATION FORM" // in loginRegisterCtrl, runs "activateLoginMode()" -->
         </div>
 
       </div>
