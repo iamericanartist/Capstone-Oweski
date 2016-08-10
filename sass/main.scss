@@ -15,6 +15,10 @@ $divider-color:       rgba(182,182,182, 1);   //LT GREY     #B6B6B6   grey light
 
 ////////////////////////////////////////////////////////////////////////////////
 //LOGIN/REGISTER CSS
+.loginRegisterBtns{
+  min-width: 124px;
+}
+
 .loginModeBg{
   padding: 10px;
   border-radius: 5px;
