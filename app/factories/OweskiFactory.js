@@ -2,10 +2,10 @@
 
 app.factory("OweskiFactory", function(FirebaseURL, $q, $http){
   
-  const postOweski = function(newOweski){
-    return $q(function(resolve, reject){
-      $http.post(`${FirebaseURL}/oweskis.json`,     //post only method that stringifies
-        JSON.stringify(newOweski))
+  const postOweski = function(newOweski){           // creation of NEW OWESKIs 
+    return $q(function(resolve, reject){            // Angular Promise for posting to Firebase
+      $http.post(`${FirebaseURL}/oweskis.json`,     // Angular XHR - post: only method that stringifies 
+        JSON.stringify(newOweski))                  // adds the stringified data
       .success(function(){
         resolve();
       })
@@ -17,7 +17,7 @@ app.factory("OweskiFactory", function(FirebaseURL, $q, $http){
 
 
   let getOweski = function(currentUserEmail) {
-    console.log("userID", currentUserEmail);
+    console.log("GETOWESKI, currentUserEmail", currentUserEmail);
     let oweskis = [];
     return $q(function(resolve, reject) {
       $http.get(`${FirebaseURL}/oweskis.json?orderBy="user1"&equalTo="${currentUserEmail}"`)
@@ -36,12 +36,10 @@ app.factory("OweskiFactory", function(FirebaseURL, $q, $http){
   };
 
 
-  var deleteOweski = function(oweskiID) {
+  let deleteOweski = function(oweskiID) {
     console.log(oweskiID, "this is a deleted oweski");
     return $q((resolve, reject) => {
-      $http.delete(
-        `${FirebaseURL}/oweskis/${oweskiID}.json`
-      )
+      $http.delete(`${FirebaseURL}/oweskis/${oweskiID}.json`)
         .success((data) => {
           resolve(data);
         })
