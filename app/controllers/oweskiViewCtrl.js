@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFactory, OweskiFactory){    // injecting the scope here...
+app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFactory, OweskiFactory, ngMaterial){    // injecting the scope here...
   $scope.registerMode = true;                                 // ...from loginRegister.html
 
   $scope.userID = AuthFactory.getUser();                      // sets userID with getUser() in the AuthFactory
@@ -14,7 +14,7 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
     let userArr = [];                                         // ...creates an empty array to be filled with the ...
     angular.forEach(result, (v, i) => {                       // ...results using "value" and key to...
       userArr.push(v);                                        // ...push user emails into the array
-    })
+    });
     console.log("List of users", userArr);                    // conlogs our userArr
     $scope.listOfUsers = userArr;                             // sets the userArr to our scoped "listOfUsers"
   });
@@ -30,9 +30,8 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
     OweskiFactory.postOweski(oweski)                          // sends above oweski to Firebase using postOweski in QweskiFactory
     .then(function(result){console.log("The +1 Oweski Posted", result);         // conlog results of postOweski
     Materialize.toast("+1 Oweski for me with " + oweski.user2, 5000, "green");  // Materialize TOAST message confirming +1 Oweski
-
     });
-  }
+  };
 
 
   $scope.minusOweski = function(){
@@ -46,21 +45,21 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
     .then(function(result){console.log("The -1 Oweski Posted", result);
     Materialize.toast("-1 Oweski for me with " + oweski.user2, 5000, "red");    // Materialize TOAST message confirming -1 Oweski
     });
-  }
+  };
 
 
   $scope.randOweski = function(){
     let oweski = {};
     oweski.user1 = AuthFactory.getUserEmail();
     oweski.user2 = $scope.oweski.user2;
-    oweski.count = Math.round(Math.random()) == 0 ? -1 : 1;   // if 0 then = -1, otherwise 1 ~ sets up count (which is relative to user1, and inversely to user2)
+    oweski.count = Math.round(Math.random()) === 0 ? -1 : 1;   // if 0 then = -1, otherwise 1 ~ sets up count (which is relative to user1, and inversely to user2)
     oweski.tags = $scope.oweski.tags.split(" ");
 
     OweskiFactory.postOweski(oweski)
     .then(function(result){console.log("RandOweski Posted", result);
     Materialize.toast(oweski.count + " Rand-Oweski for me with " + oweski.user2, 5000, "orange");   // Materialize TOAST message  confirming ? Rand-Oweski
     });
-  }
+  };
 
 });
 

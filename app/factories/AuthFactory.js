@@ -5,10 +5,11 @@ app.factory("AuthFactory", function($location, $rootScope){
   let currentUserId = null;
   let currentUserEmail = null;
 
+
   let createUser = function(email, password){
     return firebase.auth().createUserWithEmailAndPassword(email, password);
-
   };
+
 
   let loginUser = function (email, password){
     firebase.auth().signInWithEmailAndPassword(email, password)
@@ -18,37 +19,40 @@ app.factory("AuthFactory", function($location, $rootScope){
       $location.url("/main");
       $rootScope.$apply();
   })
-
-    .catch(function(error){                              // Handle Errors here.
+    .catch(function(error){                             // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
-
       console.log("errorMessage", errorMessage);
-      Materialize.toast(errorMessage, 5000, "red");     //FIX! Should pop up an error message "Try that again!" etc
+      Materialize.toast(errorMessage, 5000, "red");     //pop up error message
     });
   };
 
 
   let isAuthenticated = function(){
-    return (currentUserId) ? true : false;        // Basically if statement: "if (currentUserId === true) return true, else return false" testing for user login
+    return (currentUserId) ? true : false;              // Basically if statement: "if (currentUserId === true) return true, else return false" testing for user login
   };
+
 
   let getUser = function(){
-    return currentUserId;                         // GETTER to give access to currentUserId
+    return currentUserId;                               // GETTER to give access to currentUserId
   };
+
 
   let getUserEmail = function(){
-    return currentUserEmail;                         // GETTER to give access to currentUserId
+    return currentUserEmail;                            // GETTER to give access to currentUserEmail
   };
+
 
   let setUser = function(uid){
-    currentUserId = uid;                          // SETTER to set currentUserId as "uid"
+    currentUserId = uid;                                // SETTER to set currentUserId as "uid"
   };
 
+
   let logout = function(){
-    currentUserId = null;                         // Sets currentUserId as "null" to indicate user is not logged in
-    currentUserEmail = null;
+    currentUserId = null;                               // Sets currentUserId as "null" (user is not logged in)
+    currentUserEmail = null;                            // Sets currentUserEmail as "null"
   };
+
 
   return {createUser, loginUser, isAuthenticated, getUser, getUserEmail, setUser, currentUserId, logout};
 });
@@ -63,7 +67,9 @@ app.run(["$location", "FireCreds", "AuthFactory", function ($location, FireCreds
     storageBucket: FireCreds.storageBucket
   };
 
+
   firebase.initializeApp(authConfig);
+
 
   firebase.auth().onAuthStateChanged(function (user){
     if (user){
