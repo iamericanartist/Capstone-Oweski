@@ -1,22 +1,21 @@
-<!-- mainCtrl -
- (injject oweski factory)
+mainCtrl -
+ (inject oweski factory)
  call getOweskis(currentUsersEmail) passed in (see function)
- should return object with oweskis' matching that email
-
- card
-
- -->
+ should return object with oweskis' matching that email card -->
 
 
+<div>  
+  <div class="section no-pad-bot" id="index-banner">
+      <br>
+      <h1 class="header center orange-text">Your <b class="red-text">Oweski</b> Board</h1>
+      <div class="row center">
+        <h4 class="header col s12 light blue-text">Search old <b class="green-text">Oweskis</b> and Tags, update existing <b class="red-text">Oweskis</b>, or start a new <b>Oweski</b>!</h4>
+      </div>
+  </div>
 
-<h2>Oweski Central</h2>
-<!-- ============= CARDS TO HOLD user oweski RESULTS ============= -->
-<div class="row">
-  <h4>Your Oweskis</h4>
-  <div class="card col s4"  ng-repeat="oweski in oweskis">
-    <!-- <div class="card-image">
-      <img ng-src="{{movie.Poster}}">    ng-src for images in ng-repeats (angular)
-    </div> -->
+
+<!--   <div class="card col s4"  ng-repeat="oweski in oweskis">
+
     <div class="card-content orange accent-4">
       <p>{{oweski.user1}}</p>
       <p>{{oweski.user2}}</p>
@@ -24,52 +23,154 @@
     </div>
   </div>
 </div>
+ -->
 
-
-
-
-<!-- ============= SEARCH BAR ============= -->
 <!-- <div class="row">
   <form id="databaseSearch">
     <input type="text" ng-model="oweskiToSearch" placeholder="Search oweski database..." class="col s9 offset-s1">
     <button class="waves-effect waves-light btn-floating teal btn" ng-click="searchDatabase(oweskiToSearch)"><i class="material-icons">search</i></button>
   </form>
-</div>
- -->
+</div> -->
 
-      <div class="row">
-      <input type="text" class="form-control" placeholder="Search for..." ng-model="searchText">
-        <div class="panel panel-default">
-          <div class="panel-body cardPanelBody">
 
-            <div ng-repeat="oweski in oweskis | filter: userID | filter: searchText">
-              <div class="card col s4">
-                
-                <a href="#/oweski/{{oweski.id}}">
-                <div class="row boardTitle">
-                  <h2>{{oweski.title}}</h2>
-                </div>
+<div class="row">
+  
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~ OWESKISEARCH BAR ~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <input type="text" class="form-control" placeholder="Search Oweski database..." ng-model="searchText">
+
+  <!--~~~~~~~~~~~~~~~~~~~~~ CARDS FOR USER OWESKI RESULTS ~~~~~~~~~~~~~~~~~~~~-->
+  <div class="panel panel-default">
+    <div class="panel-body cardPanelBody">
+
+
+
+      <div ng-repeat="oweski in oweskis | filter: userID | filter: searchText">
+        <div class="card col s4">
+          
+          <a href="#/oweski/{{oweski.id}}">
+          <div class="row boardTitle">
+            <h2>{{oweski.title}}</h2>
+          </div>
+          </a>
+
+          <div class="row boardRow">
+            {{oweski.tags}}
+          </div>
+          <div class="row deleteBoardRow">
+            <button type="btn btn-default" ng-click="deleteBoardCall(oweski.id)" class="deleteButtons">Delete</button>
+          </div>  <!-- class="row deleteBoardRow"> -->
+        </div>   <!-- class="col-xs-4 oweski"> -->
+      </div>  <!-- ng-repeat -->
+
+
+
+
+
+      <div class="col s12 m4 center">
+        <div class="card orange" ng-click="getOweski()">       <!-- need to make partial to show THIS oweski only? Or just do it here? (add, minus, random) -->
+        <a ng-href="#/main">                                 <!-- link to partial if I do it -->
+          <div class="card-content white-text">
+            <span class="card-title">{{oweski.user2.email}}<br> OweSki!</span>
+            <hr/>
+            <h5>Update</h5>
+          </div>
+          </a>
+        </div>
+      </div>        
+
+
+      <!-- TO DELETE WHEN REPEAT WORKING!  EXTRAS FOR SPACING!!! -->
+                            <div class="col s12 m4 center">
+                              <div class="card orange" ng-click="getOweski()">       <!-- need to make partial to show THIS oweski only? Or just do it here? (add, minus, random) -->
+                              <a ng-href="#/main">                                 <!-- link to partial if I do it -->
+                                <div class="card-content white-text">
+                                  <span class="card-title">{{oweski.user2.email}}<br> OweSki!</span>
+                                  <hr/>
+                                  <h5>Update</h5>
+                                </div>
+                                </a>
+                              </div>
+                            </div>
+                            <div class="col s12 m4 center">
+                              <div class="card orange" ng-click="getOweski()">       <!-- need to make partial to show THIS oweski only? Or just do it here? (add, minus, random) -->
+                              <a ng-href="#/main">                                 <!-- link to partial if I do it -->
+                                <div class="card-content white-text">
+                                  <span class="card-title">{{oweski.user2.email}}<br> OweSki!</span>
+                                  <hr/>
+                                  <h5>Update</h5>
+                                </div>
+                                </a>
+                              </div>
+                            </div>
+
+      <!-- TO DELETE WHEN REPEAT WORKING! -->
+
+
+      <!-- ONE ENTIRE CARD WITH BUTTONS -->
+      <div class="col s12 m4 center"> 
+        <div class="card orange" ng-click="getOweski()">       <!-- need to make partial to show THIS oweski only? Or just do it here? (add, minus, random) -->
+        <a ng-href="#/main">                                 <!-- link to partial if I do it -->
+          <div class="card-content white-text">
+            <span class="card-title">{{oweski.user2.email}}<br> OweSki!</span>
+            <hr/>
+          </div>
+          </a>
+
+          <!-- BUTTONS!!! Content -->
+          <div class="container">
+            <!-- <h5>Update</h5> -->
+            <div class="row flexSizing">
+
+              <div class="col s12 m4 plus1 card green" ng-click="addOweski()">
+                <a ng-href="#/main" id="register">
+                  <div class="card-content white-text">
+                    <h5>+1</h5>
+                  </div>
                 </a>
+              </div>
 
-                <div class="row boardRow">
-                  {{oweski.tags}}
-                </div>
-                <div class="row deleteBoardRow">
-                  <button type="btn btn-default" ng-click="deleteBoardCall(oweski.id)" class="deleteButtons">Delete</button>
-                </div>  <!-- class="row deleteBoardRow"> -->
-              </div>   <!-- class="col-xs-4 oweski"> -->
-            </div>  <!-- ng-repeat -->
+              <div class="col s12 m4 center randowski card orange" ng-click="randOweski()">
+                <a ng-href="#/main" id="register">
+                  <div class="card-content white-text">
+                    <h5>±?</h5>
+                  </div>
+                </a>
+              </div>
+
+              <div class="col s12 m4 center minus1 card red" ng-click="minusOweski()">
+                <a ng-href="#/main" id="register">
+                  <div class="card-content white-text">
+                    <h5>-1</h5>
+                  </div>
+                </a>
+              </div>
+
+            </div>  <!--  class="row flexSizing"> -->
+          </div>
+          <!-- END BUTTONS!!! Content -->
+
+        </div>
+      </div> 
+      <!-- ONE ENTIRE CARD WITH BUTTONS -->
 
 
-            <div class="col-xs-4 oweski">
-              <div class="row spacer"> </div>
-              <a class="addOweskiDiv" ng-href="#/newOweski">
-                 <h3>New Oweski!</h3>
-              </a>
-              <div class="row spacer"> </div>
-            </div>  <!-- class="col-xs-4 oweski"> -->
 
 
-          </div>  <!-- class="panel-body cardPanelBody"> -->
-        </div>   <!-- class="panel panel-default DONOTSTYLETHIS"> -->
-      </div>
+      <!-- NEW OWESKI CARD START -->
+      <div class="col s12 m4 center">
+        <div class="card orange valign">
+          <a class="addOweskiDiv" ng-href="#/newOweski">
+          <div class="card-content white-text">
+            <span class="card-title"><h3>New Oweski!</h3></span>
+          </div>
+          </a>
+        </div>
+      </div>   
+      <!-- NEW OWESKI CARD END -->
+
+
+
+
+    </div>  <!-- class="panel-body cardPanelBody"> -->
+  </div>   <!-- class="panel panel-default"> -->
+</div>
