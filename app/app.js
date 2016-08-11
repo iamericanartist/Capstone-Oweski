@@ -2,7 +2,7 @@
 
 
 // injecting >..., "ngMaterial"< COMPLETELY BREAKS EVERYTHING???
-var app = angular.module("OweSkiApp", ["ngRoute"]);         // "OweSkiApp" is the name of our ng-app in HTML / ngRoute & ngMaterial injected into app
+var app = angular.module("OweSkiApp", ["ngRoute", "ngMaterial"]);         // "OweSkiApp" is the name of our ng-app in HTML / ngRoute & ngMaterial injected into app
     app.constant('FirebaseURL', "https://oweski-180c3.firebaseio.com/");  // setting value of 'FirebaseURL' as the Firebase link / can be done for any variables
 
 
@@ -18,7 +18,7 @@ app.config(function($routeProvider, FireCreds) {    // links the controllers to 
    })
    .when('/main', {                                 // WHEN at "/main"...
      templateUrl: 'partials/main.html',             // ...show this partial...
-     // controller: 'mainCtrl'                         // ...using this controller.
+     controller: 'oweskiViewCtrl'                   // ...using this controller.
    })
    .when('/newOweski', {                            // WHEN at "/main"...
      templateUrl: 'partials/newOweski.html',        // ...show this partial...

@@ -1,4 +1,4 @@
-mainCtrl -
+<!-- mainCtrl -
  (inject oweski factory)
  call getOweskis(currentUsersEmail) passed in (see function)
  should return object with oweskis' matching that email card -->
@@ -13,8 +13,8 @@ mainCtrl -
       </div>
   </div>
 
-
-<!--   <div class="card col s4"  ng-repeat="oweski in oweskis">
+<!-- 
+  <div class="card col s4"  ng-repeat="oweski in oweskis">
 
     <div class="card-content orange accent-4">
       <p>{{oweski.user1}}</p>
@@ -34,7 +34,6 @@ mainCtrl -
 
 
 <div class="row">
-  
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~ OWESKISEARCH BAR ~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <input type="text" class="form-control" placeholder="Search Oweski database..." ng-model="searchText">
 
@@ -42,35 +41,12 @@ mainCtrl -
   <div class="panel panel-default">
     <div class="panel-body cardPanelBody">
 
-
-
-      <div ng-repeat="oweski in oweskis | filter: userID | filter: searchText">
-        <div class="card col s4">
-          
-          <a href="#/oweski/{{oweski.id}}">
-          <div class="row boardTitle">
-            <h2>{{oweski.title}}</h2>
-          </div>
-          </a>
-
-          <div class="row boardRow">
-            {{oweski.tags}}
-          </div>
-          <div class="row deleteBoardRow">
-            <button type="btn btn-default" ng-click="deleteBoardCall(oweski.id)" class="deleteButtons">Delete</button>
-          </div>  <!-- class="row deleteBoardRow"> -->
-        </div>   <!-- class="col-xs-4 oweski"> -->
-      </div>  <!-- ng-repeat -->
-
-
-
-
-
       <div class="col s12 m4 center">
-        <div class="card orange" ng-click="getOweski()">       <!-- need to make partial to show THIS oweski only? Or just do it here? (add, minus, random) -->
+        <div class="card orange" ng-repeat="oweski in oweskis" ng-click="getOweski()"> 
         <a ng-href="#/main">                                 <!-- link to partial if I do it -->
           <div class="card-content white-text">
-            <span class="card-title">{{oweski.user2.email}}<br> OweSki!</span>
+            <span class="card-title">{{oweski.user2}}<br> OweSki!</span>    <!-- instead of user2 here use the display name from the ctrl in "1" or "2" -->
+            <!-- passing in oweski here refers to THIS OWESKI -->
             <hr/>
             <h5>Update</h5>
           </div>
@@ -78,80 +54,6 @@ mainCtrl -
         </div>
       </div>        
 
-
-      <!-- TO DELETE WHEN REPEAT WORKING!  EXTRAS FOR SPACING!!! -->
-                            <div class="col s12 m4 center">
-                              <div class="card orange" ng-click="getOweski()">       <!-- need to make partial to show THIS oweski only? Or just do it here? (add, minus, random) -->
-                              <a ng-href="#/main">                                 <!-- link to partial if I do it -->
-                                <div class="card-content white-text">
-                                  <span class="card-title">{{oweski.user2.email}}<br> OweSki!</span>
-                                  <hr/>
-                                  <h5>Update</h5>
-                                </div>
-                                </a>
-                              </div>
-                            </div>
-                            <div class="col s12 m4 center">
-                              <div class="card orange" ng-click="getOweski()">       <!-- need to make partial to show THIS oweski only? Or just do it here? (add, minus, random) -->
-                              <a ng-href="#/main">                                 <!-- link to partial if I do it -->
-                                <div class="card-content white-text">
-                                  <span class="card-title">{{oweski.user2.email}}<br> OweSki!</span>
-                                  <hr/>
-                                  <h5>Update</h5>
-                                </div>
-                                </a>
-                              </div>
-                            </div>
-
-      <!-- TO DELETE WHEN REPEAT WORKING! -->
-
-
-      <!-- ONE ENTIRE CARD WITH BUTTONS -->
-      <div class="col s12 m4 center"> 
-        <div class="card orange" ng-click="getOweski()">       <!-- need to make partial to show THIS oweski only? Or just do it here? (add, minus, random) -->
-        <a ng-href="#/main">                                 <!-- link to partial if I do it -->
-          <div class="card-content white-text">
-            <span class="card-title">{{oweski.user2.email}}<br> OweSki!</span>
-            <hr/>
-          </div>
-          </a>
-
-          <!-- BUTTONS!!! Content -->
-          <div class="container">
-            <!-- <h5>Update</h5> -->
-            <div class="row flexSizing">
-
-              <div class="col s12 m4 plus1 card green" ng-click="addOweski()">
-                <a ng-href="#/main" id="register">
-                  <div class="card-content white-text">
-                    <h5>+1</h5>
-                  </div>
-                </a>
-              </div>
-
-              <div class="col s12 m4 center randowski card orange" ng-click="randOweski()">
-                <a ng-href="#/main" id="register">
-                  <div class="card-content white-text">
-                    <h5>±?</h5>
-                  </div>
-                </a>
-              </div>
-
-              <div class="col s12 m4 center minus1 card red" ng-click="minusOweski()">
-                <a ng-href="#/main" id="register">
-                  <div class="card-content white-text">
-                    <h5>-1</h5>
-                  </div>
-                </a>
-              </div>
-
-            </div>  <!--  class="row flexSizing"> -->
-          </div>
-          <!-- END BUTTONS!!! Content -->
-
-        </div>
-      </div> 
-      <!-- ONE ENTIRE CARD WITH BUTTONS -->
 
 
 

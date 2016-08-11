@@ -16,11 +16,11 @@ app.factory("OweskiFactory", function(FirebaseURL, $q, $http){
   };
 
 
-  let getOweski = function(currentUserEmail) {
+  let getOweski = function(currentUserEmail, userNum) {
     console.log("GETOWESKI, currentUserEmail", currentUserEmail);
     let oweskis = [];
     return $q(function(resolve, reject) {
-      $http.get(`${FirebaseURL}/oweskis.json?orderBy="user1"&equalTo="${currentUserEmail}"`)
+      $http.get(`${FirebaseURL}/oweskis.json?orderBy="user${userNum}"&equalTo="${currentUserEmail}"`)
         .success(function(oweskiObject) {
           let oweskiCollection = oweskiObject;
           Object.keys(oweskiCollection).forEach(function(key) {
@@ -34,6 +34,8 @@ app.factory("OweskiFactory", function(FirebaseURL, $q, $http){
         });
     });
   };
+
+  let putOweski = 
 
 
   let deleteOweski = function(oweskiID) {
