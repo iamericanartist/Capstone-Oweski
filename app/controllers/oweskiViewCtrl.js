@@ -25,7 +25,7 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
   OweskiFactory.getOweski(AuthFactory.getUserEmail(), 1)
   .then(function(results){
     //show count here - display user 2 / THIS IS FOR OWESKI DISPLAY NUMBER ONLY
-    oweski.count = $scope.oweski.count * (-1);
+    // oweski.count = $scope.oweski.count * (-1);
 
     console.log("getOweskis as user1", results);
     results.forEach(function(result){
@@ -34,7 +34,7 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
     OweskiFactory.getOweski(AuthFactory.getUserEmail(), 2)    
     .then(function(results){
     //reverse count here - display user 1 / THIS IS FOR OWESKI DISPLAY NUMBER ONLY
-    oweski.count = $scope.oweski.count;
+    // oweski.count = $scope.oweski.count;
 
       console.log("getOweskis as user2", results);
       results.forEach(function(result){
@@ -59,8 +59,8 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
   };
 
 
-  $scope.updateAddOweski = function(oweskiToUpdate){          // adding "updateAddOweski" function to the scope
-    let oweski = oweskiToUpdate;
+  $scope.updateAddOweski = function(oweskiToUpdate){          // adding "updateAddOweski" function to the scope (this is like a temporary container)
+    let oweski = {};
     oweski.user1 = oweskiToUpdate.user1;                      // adds user1 in THIS OWESKI
     oweski.user2 = oweskiToUpdate.user2;                      // adds user2 in THIS OWESKI
 
@@ -71,8 +71,9 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
       oweski.count = oweskiToUpdate.count -1;                 // ...and inversely relative if you are user2 in the Oweski instance
       Materialize.toast("+1 Oweski for me with " + oweski.user1, 5000, "green");  // Materialize TOAST message confirming +1 Oweski
     }
-    oweski.tags = oweski.tags;                                // adds tags separated by " " (spaces)
+    oweski.tags = oweskiToUpdate.tags;                                // adds tags separated by " " (spaces)
     console.log("updateAddOweski", oweski);
+    OweskiFactory.putOweski(oweskiToUpdate.id, oweski)
   };
 
 
@@ -91,7 +92,7 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
 
 
   $scope.updateMinusOweski = function(minusOweskiToUpdate){   // adding "updateMinusOweski" function to the scope
-    let oweski = minusOweskiToUpdate;
+    let oweski = {};
     oweski.user1 = minusOweskiToUpdate.user1;                 // adds user1 in THIS OWESKI
     oweski.user2 = minusOweskiToUpdate.user2;                 // adds user2 in THIS OWESKI
 
@@ -102,8 +103,9 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
       oweski.count = minusOweskiToUpdate.count +1;            // ...and inversely relative if you are user2 in the Oweski instance
       Materialize.toast("-1 Oweski for me with " + oweski.user1, 5000, "red");  // Materialize TOAST message confirming -1 Oweski
     }
-    oweski.tags = oweski.tags;                                // adds tags separated by " " (spaces)
+    oweski.tags = minusOweskiToUpdate.tags;                                // adds tags separated by " " (spaces)
     console.log("updateMinusOweski", oweski);
+    OweskiFactory.putOweski(minusOweskiToUpdate.id, oweski)
   };
 
 
@@ -134,8 +136,9 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
       oweski.count = ramdOweskiToUpdate.count +randOweCount;        // ...and inversely relative if you are user2 in the Oweski instance
       Materialize.toast(randOweCount + "Oweski for me with " + oweski.user1, 5000, "orange");  // Materialize TOAST message confirming -1 Oweski
     }
-    oweski.tags = oweski.tags;                                      // adds tags separated by " " (spaces)
-    console.log("updateMinusOweski", oweski);
+    oweski.tags = ramdOweskiToUpdate.tags;                                      // adds tags separated by " " (spaces)
+    console.log("updateRandOweski", oweski);
+    OweskiFactory.putOweski(ramdOweskiToUpdate.id, oweski)
   };
 
 
