@@ -35,10 +35,13 @@ app.factory("OweskiFactory", function(FirebaseURL, $q, $http){
     });
   };
 
-  let putOweski = 
+  // let putOweski = 
 
 
-  let deleteOweski = function(oweskiID) {
+  
+
+
+  let deleteOweski = function(oweskiID){
     console.log(oweskiID, "this is a deleted oweski");
     return $q((resolve, reject) => {
       $http.delete(`${FirebaseURL}/oweskis/${oweskiID}.json`)

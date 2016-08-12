@@ -21,36 +21,27 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
     $scope.listOfUsers = userArr;                             // sets the userArr to our scoped "listOfUsers"
   });
 
+
   OweskiFactory.getOweski(AuthFactory.getUserEmail(), 1)
   .then(function(results){
-    console.log("qwerty", results);
+    //show count here - display user 2 / THIS IS FOR OWESKI DISPLAY NUMBER ONLY
+    oweski.count = $scope.oweski.count * (-1);
+
+    console.log("getOweskis as user1", results);
     results.forEach(function(result){
       $scope.oweskis.push(result);
-    })
-    OweskiFactory.getOweski(AuthFactory.getUserEmail(), 2)    //reverse count here - throw $scope.  / display user 1 here (user 2 above)
+    });
+    OweskiFactory.getOweski(AuthFactory.getUserEmail(), 2)    
     .then(function(results){
-      console.log("asdf", results);
+    //reverse count here - display user 1 / THIS IS FOR OWESKI DISPLAY NUMBER ONLY
+    oweski.count = $scope.oweski.count;
+
+      console.log("getOweskis as user2", results);
       results.forEach(function(result){
         $scope.oweskis.push(result);
-      })
+      });
     });
   });
-
-
-  $scope.addOweski = function(oweskiToUpdate){                              // instantiate "addOweski" function to the scope
-    let oweski = oweskiToUpdate;
-    oweski.user1 = oweskiToUpdate.user1;                // adds user1
-    oweski.user2 = oweskiToUpdate.user2;                       // adds user2
-                                            // sets up count (which is relative to user1, and inversely to user2)
-    if (oweski.user1 === AuthFactory.getUserEmail){
-     oweski.count = oweskiToUpdate.count +1; 
-    } else {
-    oweski.count = oweskiToUpdate.count -1;
-    }
-    
-    oweski.tags = oweski.tags;              // adds tags separated by " " (spaces)
-    console.log("asdf", oweski);
-  };
 
 
   $scope.addOweski = function(){                              // instantiate "addOweski" function to the scope
@@ -68,6 +59,23 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
   };
 
 
+  $scope.updateAddOweski = function(oweskiToUpdate){          // adding "updateAddOweski" function to the scope
+    let oweski = oweskiToUpdate;
+    oweski.user1 = oweskiToUpdate.user1;                      // adds user1 in THIS OWESKI
+    oweski.user2 = oweskiToUpdate.user2;                      // adds user2 in THIS OWESKI
+
+    if (oweski.user1 === AuthFactory.getUserEmail){           // if "you" are verified as user1 in the Oweski...
+      oweski.count = oweskiToUpdate.count +1;                 // ...adjusts count based on user#...  which is always relative to user1...
+      Materialize.toast("+1 Oweski for me with " + oweski.user2, 5000, "green");  // Materialize TOAST message confirming +1 Oweski
+    } else {                                                  // ...otherwise...
+      oweski.count = oweskiToUpdate.count -1;                 // ...and inversely relative if you are user2 in the Oweski instance
+      Materialize.toast("+1 Oweski for me with " + oweski.user1, 5000, "green");  // Materialize TOAST message confirming +1 Oweski
+    }
+    oweski.tags = oweski.tags;                                // adds tags separated by " " (spaces)
+    console.log("updateAddOweski", oweski);
+  };
+
+
   $scope.minusOweski = function(){
     let oweski = {};
     oweski.user1 = AuthFactory.getUserEmail();
@@ -82,11 +90,28 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
   };
 
 
+  $scope.updateMinusOweski = function(minusOweskiToUpdate){   // adding "updateMinusOweski" function to the scope
+    let oweski = minusOweskiToUpdate;
+    oweski.user1 = minusOweskiToUpdate.user1;                 // adds user1 in THIS OWESKI
+    oweski.user2 = minusOweskiToUpdate.user2;                 // adds user2 in THIS OWESKI
+
+    if (oweski.user1 === AuthFactory.getUserEmail){           // if "you" are verified as user1 in the Oweski...
+      oweski.count = minusOweskiToUpdate.count -1;            // ...adjusts count based on user#...  which is always relative to user1...
+      Materialize.toast("-1 Oweski for me with " + oweski.user2, 5000, "red");  // Materialize TOAST message confirming -1 Oweski
+    } else {                                                  // ...otherwise...
+      oweski.count = minusOweskiToUpdate.count +1;            // ...and inversely relative if you are user2 in the Oweski instance
+      Materialize.toast("-1 Oweski for me with " + oweski.user1, 5000, "red");  // Materialize TOAST message confirming -1 Oweski
+    }
+    oweski.tags = oweski.tags;                                // adds tags separated by " " (spaces)
+    console.log("updateMinusOweski", oweski);
+  };
+
+
   $scope.randOweski = function(){
     let oweski = {};
     oweski.user1 = AuthFactory.getUserEmail();
     oweski.user2 = $scope.oweski.user2;
-    oweski.count = Math.round(Math.random()) === 0 ? -1 : 1;   // if 0 then = -1, otherwise 1 ~ sets up count (which is relative to user1, and inversely to user2)
+    oweski.count = Math.round(Math.random()) === 0 ? -1 : 1;        // if 0 then = -1, otherwise 1 ~ sets up count (which is relative to user1, and inversely to user2)
     oweski.tags = $scope.oweski.tags.split(" ");
 
     OweskiFactory.postOweski(oweski)
@@ -95,5 +120,23 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
     });
   };
 
-});
 
+  $scope.updateRandOweski = function(ramdOweskiToUpdate){           // adding "updateRandOweski" function to the scope
+    let oweski = ramdOweskiToUpdate;
+    oweski.user1 = ramdOweskiToUpdate.user1;                        // adds user1 in THIS OWESKI
+    oweski.user2 = ramdOweskiToUpdate.user2;                        // adds user2 in THIS OWESKI
+    let randOweCount = Math.round(Math.random()) === 0 ? -1 : 1;    // if 0 then = -1, otherwise 1
+
+    if (oweski.user1 === AuthFactory.getUserEmail){                 // if "you" are verified as user1 in the Oweski...
+      oweski.count = ramdOweskiToUpdate.count -randOweCount;        // ...adjusts count based on user#...  which is always relative to user1...
+      Materialize.toast(randOweCount + "Oweski for me with " + oweski.user2, 5000, "orange");  // Materialize TOAST message confirming -1 Oweski
+    } else {                                                        // ...otherwise...
+      oweski.count = ramdOweskiToUpdate.count +randOweCount;        // ...and inversely relative if you are user2 in the Oweski instance
+      Materialize.toast(randOweCount + "Oweski for me with " + oweski.user1, 5000, "orange");  // Materialize TOAST message confirming -1 Oweski
+    }
+    oweski.tags = oweski.tags;                                      // adds tags separated by " " (spaces)
+    console.log("updateMinusOweski", oweski);
+  };
+
+
+});
