@@ -35,10 +35,19 @@ app.factory("OweskiFactory", function(FirebaseURL, $q, $http){
     });
   };
 
-  // let putOweski = 
 
-
-  
+  let putOweski = function(oweskiID, updatedOweski){
+    console.log(oweskiID, "this is a updated oweski");
+    return $q((resolve, reject) => {
+      $http.put(`${FirebaseURL}/oweskis/${oweskiID}.json`, updatedOweski)
+        .success((data) => {
+          resolve(data);
+        })
+        .error((error) => {
+          reject(error);
+        });
+    });
+  };
 
 
   let deleteOweski = function(oweskiID){
@@ -55,5 +64,5 @@ app.factory("OweskiFactory", function(FirebaseURL, $q, $http){
   };
 
 
-  return {postOweski, getOweski, deleteOweski};
+  return {postOweski, putOweski, getOweski, deleteOweski};
 });
