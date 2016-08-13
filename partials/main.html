@@ -22,14 +22,11 @@
 
   <!--~~~~~~~~~~~~~~~~~~~~~ CARDS FOR USER OWESKI RESULTS ~~~~~~~~~~~~~~~~~~~~-->
   <div class="panel panel-default">
-    <div class="panel-body cardPanelBody">
-
-
-
+    <div class="panel-body cardPanelBody row">
 
       <!-- ONE ENTIRE CARD WITH BUTTONS -->
-      <div class="col s12 m4 center"> 
-        <div class="card orange" ng-repeat="oweski in oweskis" ng-click="getOweski()"> 
+      <div class="row center"> 
+        <div class="card col s12 m4 center orange" ng-repeat="oweski in oweskis" ng-click="getOweski()"> 
         <a ng-href="#/main">                                 <!-- link to partial if I do it -->
           <div class="card-content white-text">
             <span class="card-title">{{oweski.user2}}<br> OweSki!</span>    <!-- instead of user2 here use the display name from the ctrl in "1" or "2" -->            
@@ -71,14 +68,6 @@
           <!-- END BUTTONS!!! Content -->
 
         </div>
-      </div> 
-      <!-- ONE ENTIRE CARD WITH BUTTONS -->
-
-
-
-
-
-
 
       <!-- NEW OWESKI CARD START -->
       <div class="col s12 m4 center">
@@ -91,6 +80,17 @@
         </div>
       </div>   
       <!-- NEW OWESKI CARD END -->
+
+
+        
+      </div> 
+      <!-- ONE ENTIRE CARD WITH BUTTONS -->
+
+
+
+
+
+
 
 
 

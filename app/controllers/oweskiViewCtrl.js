@@ -63,8 +63,8 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
     let oweski = {};
     oweski.user1 = oweskiToUpdate.user1;                      // adds user1 in THIS OWESKI
     oweski.user2 = oweskiToUpdate.user2;                      // adds user2 in THIS OWESKI
-
-    if (oweski.user1 === AuthFactory.getUserEmail){           // if "you" are verified as user1 in the Oweski...
+console.log("asdfasdf", oweskiToUpdate);  //delete me
+    if (oweski.user1 === AuthFactory.getUserEmail()){           // if "you" are verified as user1 in the Oweski...
       oweski.count = oweskiToUpdate.count +1;                 // ...adjusts count based on user#...  which is always relative to user1...
       Materialize.toast("+1 Oweski for me with " + oweski.user2, 5000, "green");  // Materialize TOAST message confirming +1 Oweski
     } else {                                                  // ...otherwise...
@@ -73,7 +73,8 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
     }
     oweski.tags = oweskiToUpdate.tags;                                // adds tags separated by " " (spaces)
     console.log("updateAddOweski", oweski);
-    OweskiFactory.putOweski(oweskiToUpdate.id, oweski)
+    OweskiFactory.putOweski(oweskiToUpdate.id, oweski);
+    $route.reload();
   };
 
 
@@ -105,7 +106,8 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
     }
     oweski.tags = minusOweskiToUpdate.tags;                                // adds tags separated by " " (spaces)
     console.log("updateMinusOweski", oweski);
-    OweskiFactory.putOweski(minusOweskiToUpdate.id, oweski)
+    OweskiFactory.putOweski(minusOweskiToUpdate.id, oweski);
+    $route.reload();
   };
 
 
@@ -138,7 +140,8 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
     }
     oweski.tags = ramdOweskiToUpdate.tags;                                      // adds tags separated by " " (spaces)
     console.log("updateRandOweski", oweski);
-    OweskiFactory.putOweski(ramdOweskiToUpdate.id, oweski)
+    OweskiFactory.putOweski(ramdOweskiToUpdate.id, oweski);
+    $route.reload();
   };
 
 
