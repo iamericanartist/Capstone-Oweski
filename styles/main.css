@@ -16,6 +16,9 @@
   background: linear-gradient(165deg, #B0E1F7 50%, #ABDBF0 50%);
   margin-bottom: 150px; }
 
+.buttonRow {
+  margin-bottom: 5px; }
+
 .side-nav {
   background: repeating-linear-gradient(45deg, white 0, white 25px, #e1f5fe 25px, #e1f5fe 30px); }
 
@@ -45,8 +48,8 @@
   font-size: 48px;
   color: white; }
 
-a.md-default-theme:not(.md-button), a:not(.md-button) {
-  color: white; }
+.deleteTabArea {
+  padding: 10px; }
 
 footer {
   position: fixed;

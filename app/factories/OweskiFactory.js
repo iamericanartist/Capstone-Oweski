@@ -17,7 +17,7 @@ app.factory("OweskiFactory", function(FirebaseURL, $q, $http){
 
 
   let getOweski = function(currentUserEmail, userNum) {
-    console.log("GETOWESKI, currentUserEmail", currentUserEmail);
+    console.log("GETOWESKI, currentUserEmail:", currentUserEmail);
     let oweskis = [];
     return $q(function(resolve, reject) {
       $http.get(`${FirebaseURL}/oweskis.json?orderBy="user${userNum}"&equalTo="${currentUserEmail}"`)
