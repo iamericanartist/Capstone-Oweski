@@ -29,6 +29,25 @@
 .icon-block .material-icons {
   font-size: inherit; }
 
+.material-icons.md-18 {
+  font-size: 18px;
+  color: white; }
+
+.material-icons.md-24 {
+  font-size: 24px;
+  color: white; }
+
+.material-icons.md-36 {
+  font-size: 36px;
+  color: white; }
+
+.material-icons.md-48 {
+  font-size: 48px;
+  color: white; }
+
+a.md-default-theme:not(.md-button), a:not(.md-button) {
+  color: white; }
+
 footer {
   position: fixed;
   left: 0px;

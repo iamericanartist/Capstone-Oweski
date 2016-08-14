@@ -1,24 +1,26 @@
 
-<div>  
-  <div class="section no-pad-bot" id="index-banner">
-      <br>
-      <h1 class="header center orange-text">Your <b class="red-text">Oweski</b> Board</h1>
-      <div class="row center">
-        <h4 class="header col s12 light blue-text">Search old <b class="green-text">Oweskis</b> and Tags, update existing <b class="red-text">Oweskis</b>, or start a new <b>Oweski</b>!</h4>
-      </div>
-  </div>
-
-<!-- <div class="row">
-  <form id="databaseSearch">
-    <input type="text" ng-model="oweskiToSearch" placeholder="Search oweski database..." class="col s9 offset-s1">
-    <button class="waves-effect waves-light btn-floating teal btn" ng-click="searchDatabase(oweskiToSearch)"><i class="material-icons">search</i></button>
-  </form>
-</div> -->
-
+<div class="section no-pad-bot" id="index-banner">
+    <br>
+    <h1 class="header center orange-text">Your <b class="red-text">Oweski</b> Board</h1>
+    <div class="row center">
+      <h4 class="header col s12 light blue-text">Search old <b class="green-text">Oweskis</b> and Tags, update existing <b class="red-text">Oweskis</b>, or start a new <b>Oweski</b>!</h4>
+    </div>
+</div>
 
 <div class="row">
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~ OWESKISEARCH BAR ~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+  <!-- UNNEEDED VERSION OF SEARCHBAR? 
+  Is "linked" to searchDatabase(oweskiToSearch) however... -->
+  <!-- <div class="row">   
+    <form id="databaseSearch">
+      <input type="text" ng-model="oweskiToSearch" placeholder="Search oweski database..." class="col s9 offset-s1">
+      <button class="waves-effect waves-light btn-floating teal btn" ng-click="searchDatabase(oweskiToSearch)"><i class="material-icons">search</i></button>
+    </form>
+  </div> -->
+
   <input type="text" class="form-control" placeholder="Search Oweski database..." ng-model="searchText">
+
 
   <!--~~~~~~~~~~~~~~~~~~~~~ CARDS FOR USER OWESKI RESULTS ~~~~~~~~~~~~~~~~~~~~-->
   <div class="panel panel-default">
@@ -26,75 +28,80 @@
 
       <!-- ONE ENTIRE CARD WITH BUTTONS -->
       <div class="row center"> 
-        <div class="card col s12 m4 center orange" ng-repeat="oweski in oweskis" ng-click="getOweski()"> 
-        <a ng-href="#/main">                                 <!-- link to partial if I do it -->
-          <div class="card-content white-text">
-            <span class="card-title">{{oweski.user2}}<br> OweSki!</span>    <!-- instead of user2 here use the display name from the ctrl in "1" or "2" -->            
-          <hr/>
+
+        <div class="col s12 m4 center" ng-repeat="oweski in oweskis" ng-click="getOweski()">
+          <div class="card orange valign">
+            <a ng-href="#/main">
+            <div class="card-content white-text">
+              <span class="card-title">{{oweski.user2}}<br> OweSki!</span>    <!-- instead of user2 here use the display name from the ctrl in "1" or "2"  NEED TO FIX!!!!-->            
+            <hr/>
+            </div>
+            </a>
+
+
+            <!-- BUTTONS!!! Content -->
+            <div class="container">
+              <!-- <h5>Update</h5> -->
+              <div class="row flexSizing">
+
+                <div class="col s12 m4 center plus1" ng-click="updateAddOweski(oweski)"> 
+                  <a ng-href="#/main" id="register">
+                    <!-- <div class="card-content white-text"> -->
+                    <!-- <i class="material-icons left">account_circle</i> -->
+                    <i class="material-icons md-48 green-text text-lighten-5">add_circle_outline</i>
+                      <!-- <h5>+1</h5> -->
+                      <!-- i buy -->
+                    <!-- </div> -->
+                  </a>
+                </div>
+
+                <div class="col s12 m4 center randowski" ng-click="updateRandOweski(oweski)">
+                  <a ng-href="#/main" id="register">
+                    <!-- <div class="card-content white-text"> -->
+                    <i class="center material-icons md-48 blue-text text-lighten-5">casino</i>
+                      <!-- <h5>±?</h5> -->
+                      <!-- ??? -->
+                    <!-- </div> -->
+                  </a>
+                </div>
+
+                <div class="col s12 m4 center minus1" ng-click="updateMinusOweski(oweski)">
+                  <a ng-href="#/main" id="register">
+                    <!-- <div class="card-content white-text"> -->
+                    <i class="center material-icons md-48 red-text text-lighten-5">remove_circle_outline</i>
+                      <!-- <h5>-1</h5> -->
+                      <!-- u buy -->
+                    <!-- </div> -->
+                  </a>
+                </div>
+
+              </div>  <!--  class="row flexSizing"> -->
+            </div>
+            <!-- END BUTTONS!!! Content -->
+
+
+          </div>   <!-- END class="card orange valign"> -->      
+        </div>   <!-- END class="col s12 m4 center" ng-repeat="oweski in oweskis" ng-click="getOweski()"> -->
+
+
+        <!-- NEW OWESKI CARD START -->
+        <div class="col s12 m4 center">
+          <div class="card orange valign">
+            <a class="addOweskiDiv" ng-href="#/newOweski">
+            <div class="card-content white-text">
+              <span class="card-title"><h3>New Oweski!</h3></span>
+            </div>
+            </a>
           </div>
-          </a>
-
-          <!-- BUTTONS!!! Content -->
-          <div class="container">
-            <!-- <h5>Update</h5> -->
-            <div class="row flexSizing">
-
-              <div class="col s12 m4 plus1 card green" ng-click="updateAddOweski(oweski)"> 
-                <a ng-href="#/main" id="register">
-                  <div class="card-content white-text">
-                    <h5>+1</h5>
-                  </div>
-                </a>
-              </div>
-
-              <div class="col s12 m4 center randowski card orange" ng-click="updateRandOweski(oweski)">
-                <a ng-href="#/main" id="register">
-                  <div class="card-content white-text">
-                    <h5>±?</h5>
-                  </div>
-                </a>
-              </div>
-
-              <div class="col s12 m4 center minus1 card red" ng-click="updateMinusOweski(oweski)">
-                <a ng-href="#/main" id="register">
-                  <div class="card-content white-text">
-                    <h5>-1</h5>
-                  </div>
-                </a>
-              </div>
-
-            </div>  <!--  class="row flexSizing"> -->
-          </div>
-          <!-- END BUTTONS!!! Content -->
-
-        </div>
-
-      <!-- NEW OWESKI CARD START -->
-      <div class="col s12 m4 center">
-        <div class="card orange valign">
-          <a class="addOweskiDiv" ng-href="#/newOweski">
-          <div class="card-content white-text">
-            <span class="card-title"><h3>New Oweski!</h3></span>
-          </div>
-          </a>
-        </div>
-      </div>   
-      <!-- NEW OWESKI CARD END -->
+        </div>   
+        <!-- END NEW OWESKI CARD -->
 
 
-        
       </div> 
-      <!-- ONE ENTIRE CARD WITH BUTTONS -->
-
-
-
-
-
-
-
+      <!-- END ONE ENTIRE CARD WITH BUTTONS -->
 
 
 
     </div>  <!-- class="panel-body cardPanelBody"> -->
   </div>   <!-- class="panel panel-default"> -->
-</div>
+</div>   <!-- class="row"> -->

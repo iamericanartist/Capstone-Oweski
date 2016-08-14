@@ -55,6 +55,7 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
     OweskiFactory.postOweski(oweski)                          // sends above oweski to Firebase using postOweski in QweskiFactory
     .then(function(result){console.log("The +1 Oweski Posted", result);         // conlog results of postOweski
     Materialize.toast("+1 Oweski for me with " + oweski.user2, 5000, "green");  // Materialize TOAST message confirming +1 Oweski
+    $route.reload();
     });
   };
 
@@ -63,7 +64,7 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
     let oweski = {};
     oweski.user1 = oweskiToUpdate.user1;                      // adds user1 in THIS OWESKI
     oweski.user2 = oweskiToUpdate.user2;                      // adds user2 in THIS OWESKI
-console.log("asdfasdf", oweskiToUpdate);  //delete me
+  console.log("asdfasdf", oweskiToUpdate);  //delete me
     if (oweski.user1 === AuthFactory.getUserEmail()){           // if "you" are verified as user1 in the Oweski...
       oweski.count = oweskiToUpdate.count +1;                 // ...adjusts count based on user#...  which is always relative to user1...
       Materialize.toast("+1 Oweski for me with " + oweski.user2, 5000, "green");  // Materialize TOAST message confirming +1 Oweski
@@ -88,6 +89,7 @@ console.log("asdfasdf", oweskiToUpdate);  //delete me
     OweskiFactory.postOweski(oweski)
     .then(function(result){console.log("The -1 Oweski Posted", result);
     Materialize.toast("-1 Oweski for me with " + oweski.user2, 5000, "red");    // Materialize TOAST message confirming -1 Oweski
+    $route.reload();
     });
   };
 
@@ -121,6 +123,7 @@ console.log("asdfasdf", oweskiToUpdate);  //delete me
     OweskiFactory.postOweski(oweski)
     .then(function(result){console.log("RandOweski Posted", result);
     Materialize.toast(oweski.count + " Rand-Oweski for me with " + oweski.user2, 5000, "orange");   // Materialize TOAST message  confirming ? Rand-Oweski
+    $route.reload();
     });
   };
 
@@ -146,3 +149,4 @@ console.log("asdfasdf", oweskiToUpdate);  //delete me
 
 
 });
+
