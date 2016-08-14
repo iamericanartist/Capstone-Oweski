@@ -30,54 +30,52 @@
       <div class="row center"> 
 
         <div class="col s12 m4 center" ng-repeat="oweski in oweskis" ng-click="getOweski()">
-          <div class="card orange valign">
+          <div class="card orange valign hoverable">
             <a ng-href="#/main">
             <div class="card-content white-text">
-              <span class="card-title">{{oweski.user2}}<br> OweSki!</span>    <!-- instead of user2 here use the display name from the ctrl in "1" or "2"  NEED TO FIX!!!!-->            
-            <hr/>
+              <span class="card-title"> <b>{{oweski.count}} OweSkis</b> <br/> with <br/> {{oweski.user2}}</span>    <!-- instead of user2 here use the display name from the ctrl in "1" or "2"  NEED TO FIX!!!!-->
+              <!-- <br/> -->
+              <!-- <span class="card-content">Oweski Count is {{oweski.count}}</span> -->
             </div>
             </a>
-
+<!--             <div class="container">
+              <div class="divider"></div>
+            </div>   -->
 
             <!-- BUTTONS!!! Content -->
             <div class="container">
-              <!-- <h5>Update</h5> -->
-              <div class="row flexSizing">
+              <div class="row flexSizing buttonRow">
 
                 <div class="col s12 m4 center plus1" ng-click="updateAddOweski(oweski)"> 
                   <a ng-href="#/main" id="register">
-                    <!-- <div class="card-content white-text"> -->
-                    <!-- <i class="material-icons left">account_circle</i> -->
-                    <i class="material-icons md-48 green-text text-lighten-5">add_circle_outline</i>
-                      <!-- <h5>+1</h5> -->
-                      <!-- i buy -->
-                    <!-- </div> -->
+                    <i class="material-icons md-48 green-text text-lighten-4">add_circle_outline</i>
                   </a>
                 </div>
 
                 <div class="col s12 m4 center randowski" ng-click="updateRandOweski(oweski)">
                   <a ng-href="#/main" id="register">
-                    <!-- <div class="card-content white-text"> -->
-                    <i class="center material-icons md-48 blue-text text-lighten-5">casino</i>
-                      <!-- <h5>±?</h5> -->
-                      <!-- ??? -->
-                    <!-- </div> -->
+                    <i class="center material-icons md-48 blue-text text-lighten-4">casino</i>
                   </a>
                 </div>
 
                 <div class="col s12 m4 center minus1" ng-click="updateMinusOweski(oweski)">
                   <a ng-href="#/main" id="register">
-                    <!-- <div class="card-content white-text"> -->
-                    <i class="center material-icons md-48 red-text text-lighten-5">remove_circle_outline</i>
-                      <!-- <h5>-1</h5> -->
-                      <!-- u buy -->
-                    <!-- </div> -->
+                    <i class="center material-icons md-48 red-text text-lighten-4">remove_circle_outline</i>
                   </a>
                 </div>
 
               </div>  <!--  class="row flexSizing"> -->
             </div>
             <!-- END BUTTONS!!! Content -->
+
+            <div class="divider"></div>
+
+            <div class="card-content orange darken-1 deleteTabArea" ng-click="deleteOweski()">
+              <a ng-href="#/main">
+                <span class="col s12 center red-text text-darken-4">delete this Oweski </span>
+                <br/>
+              </a>
+            </div>
 
 
           </div>   <!-- END class="card orange valign"> -->      
@@ -86,14 +84,22 @@
 
         <!-- NEW OWESKI CARD START -->
         <div class="col s12 m4 center">
-          <div class="card orange valign">
+          <div class="card orange valign hoverable">
             <a class="addOweskiDiv" ng-href="#/newOweski">
             <div class="card-content white-text">
               <span class="card-title"><h3>New Oweski!</h3></span>
             </div>
             </a>
+
+            <div class="divider"></div>
+            
+            <div class="card-content orange lighten-1 valign-wrapper">
+              <span class="col s12 center white-text valign">Start a new Oweski <br/> with a new Broski!</span>
+              <br/>
+            </div>
           </div>
         </div>   
+
         <!-- END NEW OWESKI CARD -->
 
 
@@ -105,3 +111,5 @@
     </div>  <!-- class="panel-body cardPanelBody"> -->
   </div>   <!-- class="panel panel-default"> -->
 </div>   <!-- class="row"> -->
+<br>
+<br>
