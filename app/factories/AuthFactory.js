@@ -12,13 +12,7 @@ app.factory("AuthFactory", function($location, $rootScope){
 
 
   let loginUser = function (email, password){
-    firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(function(object){console.log("Login",object);
-      currentUserEmail = object.email;
-      Materialize.toast("Welcome Back, " + object.email, 5000, "purple");     // pop up a congratulatory message "Welcome back User!"
-      $location.url("/main");
-      $rootScope.$apply();
-  })
+    return firebase.auth().signInWithEmailAndPassword(email, password)
     .catch(function(error){                             // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -47,6 +41,11 @@ app.factory("AuthFactory", function($location, $rootScope){
     currentUserId = uid;                                // SETTER to set currentUserId as "uid"
   };
 
+  let setUserEmail = function(email){
+    $rootScope.userEmail = email;
+    currentUserEmail = email;                                // SETTER to set currentUserId as "uid"
+  };
+
 
   let logout = function(){
     currentUserId = null;                               // Sets currentUserId as "null" (user is not logged in)
@@ -54,7 +53,7 @@ app.factory("AuthFactory", function($location, $rootScope){
   };
 
 
-  return {createUser, loginUser, isAuthenticated, getUser, getUserEmail, setUser, currentUserId, logout};
+  return {createUser, loginUser, isAuthenticated, getUser, getUserEmail, setUser, setUserEmail, currentUserId, logout};
 });
 
 

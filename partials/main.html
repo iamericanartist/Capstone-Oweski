@@ -9,17 +9,8 @@
 
 <div class="row">
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~ OWESKISEARCH BAR ~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-
-  <!-- UNNEEDED VERSION OF SEARCHBAR? 
-  Is "linked" to searchDatabase(oweskiToSearch) however... -->
-<!--   <div class="row">   
-    <form id="databaseSearch">
-      <input type="text" ng-model="oweskiToSearch" placeholder="Search oweski database..." class="col s9 offset-s1">
-      <button class="waves-effect waves-light btn-floating teal btn" ng-click="searchDatabase(oweskiToSearch)"><i class="material-icons">search</i></button>
-    </form>
-  </div> -->
-
   <input type="text" class="form-control" placeholder="Search Oweski database..." ng-model="oweskiToSearch">
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~ END OWESKISEARCH BAR ~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 
   <!--~~~~~~~~~~~~~~~~~~~~~ CARDS FOR USER OWESKI RESULTS ~~~~~~~~~~~~~~~~~~~~-->
@@ -37,7 +28,11 @@
               
               <br/>
 
-              <span>with <br/>{{oweski.user2}}</span>    
+              <span ng-show="loggedInUser === oweski.user1">with <br/>{{oweski.user2}}</span>
+              <span ng-show="loggedInUser === oweski.user2">with <br/>{{oweski.user1}}</span>
+              <!-- <span>with <br/>{{oweski.user2}}</span> -->
+
+              <!-- <span>with <br/>{{oweski.user2}}</span>     -->
               <!-- instead of user2 here use the display name from the ctrl in "1" or "2"  NEED TO FIX!!!!-->
 
             </div>

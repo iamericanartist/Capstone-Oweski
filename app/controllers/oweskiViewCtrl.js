@@ -4,10 +4,10 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
   $scope.registerMode = true;                                 // ...from loginRegister.html
 
   $scope.userID = AuthFactory.getUser();                      // sets userID with getUser() in the AuthFactory
-
   $scope.oweskis = [];                                        // sets an empty array to be added to below
   $scope.oweski = {};                                         // sets an empty array to be added to below
   $scope.oweski.tags = "";                                    // line 9 & 10 are for new oweskis
+  $scope.loggedInUser = AuthFactory.getUserEmail();
 
 
   UsersFactory.getUsers()                                     // gets list of existing users from UsersFactory
@@ -24,8 +24,6 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
 
   OweskiFactory.getOweski(AuthFactory.getUserEmail(), 1)
   .then(function(results){
-    //show count here - display user 2 / THIS IS FOR OWESKI DISPLAY NUMBER ONLY
-    // oweski.count = $scope.oweski.count * (-1);
 
     console.log("getOweskis as user1", results);
     results.forEach(function(result){
@@ -33,8 +31,6 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
     });
     OweskiFactory.getOweski(AuthFactory.getUserEmail(), 2)    
     .then(function(results){
-    //reverse count here - display user 1 / THIS IS FOR OWESKI DISPLAY NUMBER ONLY
-    // oweski.count = $scope.oweski.count;
 
       console.log("getOweskis as user2", results);
       results.forEach(function(result){
@@ -76,8 +72,8 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
     oweski.tags = oweskiToUpdate.tags;                        // adds tags separated by " " (spaces)
     OweskiFactory.putOweski(oweskiToUpdate.id, oweski)        // updates this Oweski in Firebase using putOweski in QweskiFactory
     .then(function(){
-      $route.reload();
-    });                                          // reloads page automatically (manual reload wipes NG stuff)
+      $route.reload();                                        // reloads page automatically (manual reload wipes NG stuff)
+    });
     console.log("updateAddOweski", oweski);                   // con log to show current "oweski"
   };
 

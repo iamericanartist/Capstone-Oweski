@@ -6,6 +6,7 @@ app.controller("navCtrl", function($scope, $route, AuthFactory){      // injecti
     return AuthFactory.isAuthenticated();
   };
 
+
   $scope.logout = function(){
     firebase.auth().signOut()
     .then(function(){

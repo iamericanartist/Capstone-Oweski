@@ -20,13 +20,11 @@ app.controller("loginRegisterCtrl", function($scope, $route, AuthFactory, UsersF
 
 
   $scope.onRegisterClick = function(){                        // Registers NEW user with their email and password input from loginRegister.html
-    AuthFactory.createUser($scope.newUser.email, $scope.regPassword)        //captures email and password using ng-model="regEmail" / "...Password"
+    AuthFactory.createUser($scope.newUser.email, $scope.regPassword)          //captures email and password using ng-model="regEmail" / "...Password"
     .then(function(object){console.log("Register",object);
       $scope.newUser.uid = object.uid;
       UsersFactory.postUser($scope.newUser);
   })
-
-                            // is the semicolon on line 24 messing this up?
     .catch(function(error){                                   // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -35,7 +33,12 @@ app.controller("loginRegisterCtrl", function($scope, $route, AuthFactory, UsersF
 
 
   $scope.onLoginClick = function(){                           // Logs in EXISTING user with their email and password input from loginRegister.html
-    AuthFactory.loginUser($scope.loginEmail, $scope.loginPassword);         //captures email and password using ng-model="loginEmail" / "...Password"
+    AuthFactory.loginUser($scope.loginEmail, $scope.loginPassword)            //captures email and password using ng-model="loginEmail" / "...Password"
+    .then(function(object){console.log("Login",object);
+      AuthFactory.setUserEmail(object.email);
+      Materialize.toast("Welcome Back, " + object.email, 5000, "purple");     // pop up a congratulatory message "Welcome back User!"
+      $route.reload();
+    });
   };
 
   
