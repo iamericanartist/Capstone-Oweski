@@ -20,48 +20,50 @@
 <body ng-app="OweSkiApp">
 
 
+  <main>
+    
+    <!--~~~~~~~~~~~~~~~~~~~~ NAV BAR ~~~~~~~~~~~~~~~~~~~~-->
+    <nav class="light-blue" role="navigation" ng-controller="navCtrl">
+      <div class="nav-wrapper container"><a id="logo-container" ng-href="#/main" class="brand-logo">OweSki</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a ng-href="#/main" ng-show="userIsAuthenticated()" class="white-text"><i class="material-icons left white-text">account_circle</i>My OweSkis</a></li>
+          <li><a class="white-text" ng-href="#/loginReg" ng-show="!userIsAuthenticated()">Register / Login</a></li>
+          <li><a class="white-text" ng-show="userIsAuthenticated()" ng-click="logout()">Logout</a></li>
+        </ul>
 
-  <!--~~~~~~~~~~~~~~~~~~~~ NAV BAR ~~~~~~~~~~~~~~~~~~~~-->
-  <nav class="light-blue" role="navigation" ng-controller="navCtrl">
-    <div class="nav-wrapper container"><a id="logo-container" ng-href="#/main" class="brand-logo">OweSki</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a ng-href="#/main" ng-show="userIsAuthenticated()"><i class="material-icons left white-text">account_circle</i>My OweSkis</a></li>
-        <li><a class="white-text" ng-href="#/loginReg" ng-show="!userIsAuthenticated()">Register / Login</a></li>
-        <li><a class="white-text" ng-show="userIsAuthenticated()" ng-click="logout()">Logout</a></li>
-      </ul>
-
-      <!-- SLIDE OUT "SIDE-NAV" UPON "MOBILE VIEW"  -->
-      <!-- "SIDE-NAV" REQUIRES:   "$('.button-collapse').sideNav..."  in app.js to work -->
-      <!-- To use this in conjunction with a fullscreen navigation, you have to use two copies of the same UL. -->
-      <ul id="slide-out" class="side-nav">
-        <li>
-          <div class="userView">
-            <img class="background circle center-align userImage" src="https://avatars1.githubusercontent.com/u/16328475?v=3&s=460" />
-            <a href="#!name"><span class="name"><h5>This Dude Here</h5></span></a>
-            <!-- <a href="#!email"><span class="email center-align">thisEmailHere@gmail.com</span></a> -->
-          <div class="divider"></div>
-          </div>
-        </li>
-        <li><div class="divider"></div></li>
-        <li><a href="#!">My OweSkis</a></li>
-        <li><a class="waves-effect" href="#!">New OweSki</a></li>         <!-- FIX ME -->
-        <li><a class="waves-effect" href="#!">Update An OweSki</a></li>         <!-- FIX ME -->
-        <li><a class="waves-effect" href="#!">Delete An OweSki</a></li>         <!-- FIX ME -->
-        <li><div class="divider"></div></li>
-        <li><a ng-href="#/account"><i class="material-icons left">account_circle</i>My Account</a></li>
-        <li><a ng-href="#/loginReg">Login</a></li>
-        <li><a ng-href="#/logoutSplash">Log OutSki</a></li>
-      </ul>
-      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>   
-    </div>
-  </nav>
-  <!--~~~~~~~~~~~~~~~~~ END OF NAV BAR ~~~~~~~~~~~~~~~~~-->
+        <!-- SLIDE OUT "SIDE-NAV" UPON "MOBILE VIEW"  -->
+        <!-- "SIDE-NAV" REQUIRES:   "$('.button-collapse').sideNav..."  in app.js to work -->
+        <!-- To use this in conjunction with a fullscreen navigation, you have to use two copies of the same UL. -->
+        <ul id="slide-out" class="side-nav">
+          <li>
+            <div class="userView">
+              <img class="background circle center-align userImage" src="https://avatars1.githubusercontent.com/u/16328475?v=3&s=460" />
+              <a href="#!name"><span class="name"><h5>This Dude Here</h5></span></a>
+              <!-- <a href="#!email"><span class="email center-align">thisEmailHere@gmail.com</span></a> -->
+            <div class="divider"></div>
+            </div>
+          </li>
+          <li><div class="divider"></div></li>
+          <li><a href="#!">My OweSkis</a></li>
+          <li><a class="waves-effect" href="#!">New OweSki</a></li>         <!-- FIX ME -->
+          <li><a class="waves-effect" href="#!">Update An OweSki</a></li>         <!-- FIX ME -->
+          <li><a class="waves-effect" href="#!">Delete An OweSki</a></li>         <!-- FIX ME -->
+          <li><div class="divider"></div></li>
+          <li><a ng-href="#/account"><i class="material-icons left">account_circle</i>My Account</a></li>
+          <li><a ng-href="#/loginReg">Login</a></li>
+          <li><a ng-href="#/logoutSplash">Log OutSki</a></li>
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>   
+      </div>
+    </nav>
+    <!--~~~~~~~~~~~~~~~~~ END OF NAV BAR ~~~~~~~~~~~~~~~~~-->
 
 
 
-  <!--~~~~~~~~~~~~~~~ CONTAINER FOR VIEW ~~~~~~~~~~~~~~~-->
-  <div class="container" ng-view></div>   <!-- for shadow add "z-depth-5" class -->
-  <!--~~~~~~~~~~~ END OF CONTAINER FOR VIEW ~~~~~~~~~~~-->
+    <!--~~~~~~~~~~~~~~~ CONTAINER FOR VIEW ~~~~~~~~~~~~~~~-->
+    <div class="container" ng-view></div>   <!-- for shadow add "z-depth-5" class -->
+    <!--~~~~~~~~~~~ END OF CONTAINER FOR VIEW ~~~~~~~~~~~-->
+  </main>
 
 
 

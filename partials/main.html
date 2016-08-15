@@ -26,24 +26,25 @@
   <div class="panel panel-default">
     <div class="panel-body cardPanelBody row">
 
-      <!-- ONE ENTIRE CARD WITH BUTTONS -->
+      <!--~~~~~~~~~~~~~~~~~~~ ONE ENTIRE CARD WITH BUTTONS ~~~~~~~~~~~~~~~~~~~-->
       <div class="row center"> 
 
         <div class="col s12 m4 center" ng-repeat="oweski in oweskis" ng-click="getOweski()">
           <div class="card orange valign hoverable">
             <a ng-href="#/main">
             <div class="card-content white-text">
-              <span class="card-title"> <b>{{oweski.count}} OweSkis</b><span>
-              <span>with <br/> {{oweski.user2}}</span>    <!-- instead of user2 here use the display name from the ctrl in "1" or "2"  NEED TO FIX!!!!-->
-              <!-- <br/> -->
-              <!-- <span class="card-content">Oweski Count is {{oweski.count}}</span> -->
+              <span class="card-title"><b>{{oweski.count}} OweSkis</b></span>
+              
+              <br/>
+
+              <span>with <br/>{{oweski.user2}}</span>    
+              <!-- instead of user2 here use the display name from the ctrl in "1" or "2"  NEED TO FIX!!!!-->
+
             </div>
             </a>
-<!--             <div class="container">
-              <div class="divider"></div>
-            </div>   -->
 
-            <!-- BUTTONS!!! Content -->
+
+            <!--~~~~~~~~~~~~~~~~~~~~~ BUTTONS!!! Content ~~~~~~~~~~~~~~~~~~~~~-->
             <div class="container">
               <div class="row flexSizing buttonRow">
 
@@ -65,27 +66,39 @@
                   </a>
                 </div>
 
-              </div>  <!--  class="row flexSizing"> -->
-            </div>
-            <!-- END BUTTONS!!! Content -->
+              </div>  <!--  class="row flexSizing buttonRow"> -->
+            </div>   <!-- class="container"> -->
+            <!--~~~~~~~~~~~~~~~~~~~ END BUTTONS!!! Content ~~~~~~~~~~~~~~~~~~~-->
 
             <div class="divider"></div>
 
-            <div class="card-content orange darken-1 deleteTabArea" ng-click="deleteOweski(oweski)">
+            <!--~~~~~~~~~~~~~~~~~~~~ OWESKI TAGS Content ~~~~~~~~~~~~~~~~~~~~-->
+            <div class="card-content orange darken-1 tagsTabArea">
               <a ng-href="#/main">
-                <span class="col s12 center red-text text-darken-4">delete this Oweski </span>
+                <span class="row s12 center orange-text text-lighten-3">Oweski Tags: <br/>{{oweski.tags}}</span>
+              </a>
+            </div>
+            <!--~~~~~~~~~~~~~~~~~~ END OWESKI TAGS Content ~~~~~~~~~~~~~~~~~~-->
+
+            <div class="divider"></div>
+
+            <!--~~~~~~~~~~~~~~~~~~~ DELETE OWESKI Content ~~~~~~~~~~~~~~~~~~~-->
+            <div class="card-content orange darken-2 deleteTabArea" ng-click="deleteOweski(oweski)">
+              <a ng-href="#/main">
+                <span class="col s12 center red-text text-darken-4">delete this Oweski</span>
                 <br/>
               </a>
             </div>
+            <!--~~~~~~~~~~~~~~~~~ END DELETE OWESKI Content ~~~~~~~~~~~~~~~~~-->
 
-
-          </div>   <!-- END class="card orange valign"> -->      
+          </div>   <!-- END class="card orange valign hoverable"> -->      
         </div>   <!-- END class="col s12 m4 center" ng-repeat="oweski in oweskis" ng-click="getOweski()"> -->
 
 
-        <!-- NEW OWESKI CARD START -->
+        <!--~~~~~~~~~~~~~~~~~~~~~ NEW OWESKI CARD START ~~~~~~~~~~~~~~~~~~~~~-->
         <div class="col s12 m4 center">
-          <div class="card orange valign hoverable">
+          <div class="card light-blue darken-1 valign hoverable">
+
             <a class="addOweskiDiv" ng-href="#/newOweski">
             <div class="card-content white-text">
               <span class="card-title"><h3>New Oweski!</h3></span>
@@ -93,24 +106,21 @@
 
             <div class="divider"></div>
             
-            <div class="card-content orange lighten-1 valign-wrapper">
+            <div class="card-content light-blue valign-wrapper">
               <span class="col s12 center white-text valign">Start a new Oweski <br/> with a new Broski!</span>
               <br/>
             </div>
             </a>
-          </div>
-        </div>   
 
-        <!-- END NEW OWESKI CARD -->
-
-
-      </div> 
-      <!-- END ONE ENTIRE CARD WITH BUTTONS -->
+          </div>   <!-- class="card orange valign hoverable"> -->
+        </div>    <!-- class="col s12 m4 center"> -->
+        <!--~~~~~~~~~~~~~~~~~~~~~~ END NEW OWESKI CARD ~~~~~~~~~~~~~~~~~~~~~~-->
 
 
+      </div>  <!-- class="row center"> -->
+      <!--~~~~~~~~~~~~~~~~~ END ONE ENTIRE CARD WITH BUTTONS ~~~~~~~~~~~~~~~~~-->
 
-    </div>  <!-- class="panel-body cardPanelBody"> -->
+
+    </div>  <!-- class="panel-body cardPanelBody row"> -->
   </div>   <!-- class="panel panel-default"> -->
 </div>   <!-- class="row"> -->
-<br>
-<br>
