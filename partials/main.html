@@ -12,14 +12,14 @@
 
   <!-- UNNEEDED VERSION OF SEARCHBAR? 
   Is "linked" to searchDatabase(oweskiToSearch) however... -->
-  <!-- <div class="row">   
+<!--   <div class="row">   
     <form id="databaseSearch">
       <input type="text" ng-model="oweskiToSearch" placeholder="Search oweski database..." class="col s9 offset-s1">
       <button class="waves-effect waves-light btn-floating teal btn" ng-click="searchDatabase(oweskiToSearch)"><i class="material-icons">search</i></button>
     </form>
   </div> -->
 
-  <input type="text" class="form-control" placeholder="Search Oweski database..." ng-model="searchText">
+  <input type="text" class="form-control" placeholder="Search Oweski database..." ng-model="oweskiToSearch">
 
 
   <!--~~~~~~~~~~~~~~~~~~~~~ CARDS FOR USER OWESKI RESULTS ~~~~~~~~~~~~~~~~~~~~-->
@@ -29,7 +29,7 @@
       <!--~~~~~~~~~~~~~~~~~~~ ONE ENTIRE CARD WITH BUTTONS ~~~~~~~~~~~~~~~~~~~-->
       <div class="row center"> 
 
-        <div class="col s12 m4 center" ng-repeat="oweski in oweskis" ng-click="getOweski()">
+        <div class="col s12 m4 center" ng-repeat="oweski in oweskis | filter:oweskiToSearch" ng-click="getOweski()">
           <div class="card orange valign hoverable">
             <a ng-href="#/main">
             <div class="card-content white-text">
