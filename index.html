@@ -26,7 +26,9 @@
     <nav class="light-blue" role="navigation" ng-controller="navCtrl">
       <div class="nav-wrapper container"><a id="logo-container" ng-href="#/main" class="brand-logo">OweSki</a>
         <ul class="right hide-on-med-and-down">
-          <li><a ng-href="#/main" ng-show="userIsAuthenticated()" class="white-text"><i class="material-icons left white-text">account_circle</i>My OweSkis</a></li>
+          <!-- <li class="white-text"> {{userEmail}}</li> -->
+          <li><a ng-href="#/main" ng-show="userIsAuthenticated()" class="white-text"><i class="material-icons left white-text">account_circle</i>{{userEmail}}</a></li>
+
           <li><a class="white-text" ng-href="#/loginReg" ng-show="!userIsAuthenticated()">Register / Login</a></li>
           <li><a class="white-text" ng-show="userIsAuthenticated()" ng-click="logout()">Logout</a></li>
         </ul>
