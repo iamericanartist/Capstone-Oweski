@@ -30,10 +30,8 @@ $divider-color:       rgba(182,182,182, 1);   //LT GREY     #B6B6B6   grey light
   background-color: rgba(244, 67, 54, 0.08);
 }
 
-.qwerqwer{
-  // background-color: $primary-color-light;
+.splashDetails{
   background: linear-gradient(165deg, #B0E1F7 50%, #ABDBF0 50%);
-  margin-bottom: 150px;
 }
 
 .buttonRow{
@@ -68,16 +66,22 @@ $divider-color:       rgba(182,182,182, 1);   //LT GREY     #B6B6B6   grey light
 //     color: white;
 // } DOES NOT FIX RED TEXT ISSUE - BREAKS MODAL WINDOW TEXT COLOR :(
 
-.deleteTabArea{
+.card-content.orange.darken-1.deleteTabArea {
   padding:10px;
 }
 
-//FOOTER FIXED TO BOTTOM
-footer {
+// // FOOTER FIXED TO BOTTOM
+nav {
   position:fixed;
   left:0px;
-  bottom:0px;
+  top:0px;
   width:100%;
+  z-index: 1;
+}
+
+main {
+  min-height: calc(100vh - 157px);
+  font-size: 20px;
 }
 
 .flexSizing {
