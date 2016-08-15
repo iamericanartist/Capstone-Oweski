@@ -10,10 +10,10 @@
 
     <div class="md-padding">
       <div>
-        <h1 class="md-title">Broskis</h1>
+        <h1 class="md-title">List of Active Broskis</h1>
         <div layout="row">
           <md-input-container>
-            <label>Whoski?</label>
+            <label>Whoski With?</label>
             <md-select ng-model="oweski.user2">
               <md-optgroup label="listOfUsers">
                 <md-option value="{{user.email}}" ng-repeat="user in listOfUsers">{{user.email}}</md-option>
@@ -35,12 +35,13 @@
       <div class="row flexSizing">
 
         <div class="col s12 m4 center plus1">
-          <div class="card green" ng-click="addOweski()">
+          <div class="card green hoverable" ng-click="addOweski()">
           <a ng-href="#/main" id="register">
             <div class="card-content white-text">
               <span class="card-title">They <br> OweSki!</span>
               <hr/>
               <h5>+1 for me!</h5>
+              <i class="material-icons md-48 white-text">add_circle_outline</i>
             </div>
             </a>
             <!-- <div class="card-action"></div> -->
@@ -48,12 +49,13 @@
         </div>
 
         <div class="col s12 m4 center randowski">
-          <div class="card orange" ng-click="randOweski()">
+          <div class="card orange hoverable" ng-click="randOweski()">
           <a ng-href="#/main" id="register">
             <div class="card-content white-text">
               <span class="card-title">RAND-OWESKI!</span>
               <hr/>
               <h5>Let Oweski Decide!</h5>
+              <i class="center material-icons md-48 white-text">casino</i>
             </div>
             </a>
             <!-- <div class="card-action"></div> -->
@@ -61,12 +63,13 @@
         </div>
 
         <div class="col s12 m4 center minus1">
-          <div class="card red" ng-click="minusOweski()">
+          <div class="card red hoverable" ng-click="minusOweski()">
           <a ng-href="#/main" id="register">
             <div class="card-content white-text">
               <span class="card-title">I <br> OweSki!</span>
               <hr/>
               <h5>-1 for me!</h5>
+              <i class="center material-icons md-48 white-text">remove_circle_outline</i>
             </div>
             </a>
             <!-- <div class="card-action"></div> -->

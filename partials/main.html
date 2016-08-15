@@ -33,7 +33,8 @@
           <div class="card orange valign hoverable">
             <a ng-href="#/main">
             <div class="card-content white-text">
-              <span class="card-title"> <b>{{oweski.count}} OweSkis</b> <br/> with <br/> {{oweski.user2}}</span>    <!-- instead of user2 here use the display name from the ctrl in "1" or "2"  NEED TO FIX!!!!-->
+              <span class="card-title"> <b>{{oweski.count}} OweSkis</b><span>
+              <span>with <br/> {{oweski.user2}}</span>    <!-- instead of user2 here use the display name from the ctrl in "1" or "2"  NEED TO FIX!!!!-->
               <!-- <br/> -->
               <!-- <span class="card-content">Oweski Count is {{oweski.count}}</span> -->
             </div>
@@ -48,19 +49,19 @@
 
                 <div class="col s12 m4 center plus1" ng-click="updateAddOweski(oweski)"> 
                   <a ng-href="#/main" id="register">
-                    <i class="material-icons md-48 green-text text-lighten-4">add_circle_outline</i>
+                    <i class="material-icons md-48 green-text">add_circle_outline</i>
                   </a>
                 </div>
 
                 <div class="col s12 m4 center randowski" ng-click="updateRandOweski(oweski)">
                   <a ng-href="#/main" id="register">
-                    <i class="center material-icons md-48 blue-text text-lighten-4">casino</i>
+                    <i class="center material-icons md-48 white-text">casino</i>
                   </a>
                 </div>
 
                 <div class="col s12 m4 center minus1" ng-click="updateMinusOweski(oweski)">
                   <a ng-href="#/main" id="register">
-                    <i class="center material-icons md-48 red-text text-lighten-4">remove_circle_outline</i>
+                    <i class="center material-icons md-48 red-text">remove_circle_outline</i>
                   </a>
                 </div>
 
@@ -70,7 +71,7 @@
 
             <div class="divider"></div>
 
-            <div class="card-content orange darken-1 deleteTabArea" ng-click="deleteOweski()">
+            <div class="card-content orange darken-1 deleteTabArea" ng-click="deleteOweski(oweski)">
               <a ng-href="#/main">
                 <span class="col s12 center red-text text-darken-4">delete this Oweski </span>
                 <br/>
@@ -89,7 +90,6 @@
             <div class="card-content white-text">
               <span class="card-title"><h3>New Oweski!</h3></span>
             </div>
-            </a>
 
             <div class="divider"></div>
             
@@ -97,6 +97,7 @@
               <span class="col s12 center white-text valign">Start a new Oweski <br/> with a new Broski!</span>
               <br/>
             </div>
+            </a>
           </div>
         </div>   
 
