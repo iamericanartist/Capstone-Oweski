@@ -1,7 +1,5 @@
 "use strict";
 
-
-// injecting >..., "ngMaterial"< COMPLETELY BREAKS EVERYTHING???
 var app = angular.module("OweSkiApp", ["ngRoute", "ngMaterial"]);         // "OweSkiApp" is the name of our ng-app in HTML / ngRoute & ngMaterial injected into app
     app.constant('FirebaseURL', "https://oweski-180c3.firebaseio.com/");  // setting value of 'FirebaseURL' as the Firebase link / can be done for any variables
 

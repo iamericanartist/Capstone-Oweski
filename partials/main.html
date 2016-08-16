@@ -22,19 +22,13 @@
 
         <div class="col s12 m4 center" ng-repeat="oweski in oweskis | filter:oweskiToSearch" ng-click="getOweski()">
           <div class="card orange valign hoverable">
+          
             <a ng-href="#/main">
             <div class="card-content white-text">
               <span class="card-title"><b>{{oweski.count}} OweSkis</b></span>
-              
               <br/>
-
               <span ng-show="loggedInUser === oweski.user1">with <br/>{{oweski.user2}}</span>
               <span ng-show="loggedInUser === oweski.user2">with <br/>{{oweski.user1}}</span>
-              <!-- <span>with <br/>{{oweski.user2}}</span> -->
-
-              <!-- <span>with <br/>{{oweski.user2}}</span>     -->
-              <!-- instead of user2 here use the display name from the ctrl in "1" or "2"  NEED TO FIX!!!!-->
-
             </div>
             </a>
 
