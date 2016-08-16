@@ -62,15 +62,12 @@ $divider-color:       rgba(182,182,182, 1);   //LT GREY     #B6B6B6   grey light
 .material-icons.md-36 { font-size: 36px; color: white;}
 .material-icons.md-48 { font-size: 48px; color: white;}
 
-// a.md-default-theme:not(.md-button), a:not(.md-button) {
-//     color: white;
-// } DOES NOT FIX RED TEXT ISSUE - BREAKS MODAL WINDOW TEXT COLOR :(
-
 .card-content.orange.darken-1.deleteTabArea {
   padding:10px;
 }
 
-// // FOOTER FIXED TO BOTTOM
+
+// // NAV & FOOTER
 nav {
   position:fixed;
   left:0px;
@@ -87,3 +84,12 @@ main {
 .flexSizing {
   display: flex;
 }
+
+
+// // Skewed nav
+// nav.light-blue.ng-scope {
+//   top: -15px;
+//   height: 75px;
+//   transform: skewY(-1.5deg);
+//   padding-top: 16px;
+// }

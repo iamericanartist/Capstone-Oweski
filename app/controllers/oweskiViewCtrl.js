@@ -98,7 +98,7 @@ app.controller("oweskiViewCtrl", function($scope, $route, AuthFactory, UsersFact
     let oweski = {};
     oweski.user1 = minusOweskiToUpdate.user1;
     oweski.user2 = minusOweskiToUpdate.user2;
-console.log("PREUPDATE MINUS", minusOweskiToUpdate.count);  //DELETE ME
+// console.log("PREUPDATE MINUS", minusOweskiToUpdate.count);  //DELETE ME
 
     if (oweski.user1 === AuthFactory.getUserEmail()){                             // if "you" are verified as user1 in the Oweski...
       oweski.count = minusOweskiToUpdate.count -1;                              // ...adjusts count based on user#...  which is always relative to user1...
@@ -137,7 +137,7 @@ console.log("PREUPDATE MINUS", minusOweskiToUpdate.count);  //DELETE ME
     oweski.user1 = ramdOweskiToUpdate.user1;
     oweski.user2 = ramdOweskiToUpdate.user2;
     let randOweCount = Math.round(Math.random()) === 0 ? -1 : 1;
-    console.log("PREUPDATE RAND", ramdOweskiToUpdate.count);                                    // conlog of the PREUPDATE value
+    // console.log("PREUPDATE RAND", ramdOweskiToUpdate.count);                                    // conlog of the PREUPDATE value
 
     if (oweski.user1 === AuthFactory.getUserEmail){                                             // if "you" are verified as user1 in the Oweski...
       oweski.count = ramdOweskiToUpdate.count -randOweCount;                                    // ...adjusts count based on user#...  which is always relative to user1...
